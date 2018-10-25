@@ -10,7 +10,7 @@ Dialog {
     allowedOrientations: defaultAllowedOrientations
 
     onAccepted: enableOnly ?
-                    OrnPm.modifyRepo("openrepos-" + author, OrnPm.EnableRepo) :
+                    OrnPm.modifyRepo("openrepos.cn-" + author, OrnPm.EnableRepo) :
                     OrnPm.addRepo(author)
 
     DialogHeader {

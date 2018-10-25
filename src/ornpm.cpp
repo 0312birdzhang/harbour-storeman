@@ -30,7 +30,7 @@ using namespace PackageKit;
     d_ptr->operations.insert(item, operation); \
     emit this->operationsChanged();
 
-const QLatin1String OrnPm::repoNamePrefix("openrepos-");
+const QLatin1String OrnPm::repoNamePrefix("openrepos.cn-");
 
 OrnPm *OrnPm::g_instance = nullptr;
 
