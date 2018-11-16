@@ -28,7 +28,7 @@
 #include "ornrepo.h"
 #include "ornapirequest.h"
 
-#define STOREMAN_AUTHOR QStringLiteral("osetr")
+#define STOREMAN_AUTHOR QStringLiteral("birdzhang")
 
 
 Storeman *Storeman::gInstance = nullptr;

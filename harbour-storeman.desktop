@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-X-Nemo-Application-Type=silica-qt5
-Icon=harbour-storeman
-Exec=invoker --type=silica-qt5 -s harbour-storeman
-Name=Storeman

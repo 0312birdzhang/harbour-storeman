@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=harbour.storeman.cn.service
+Exec=/usr/bin/invoker --type=silica-qt5 -s /usr/bin/harbour-storeman-cn
+User=nemo

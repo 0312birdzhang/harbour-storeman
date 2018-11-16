@@ -1,4 +1,4 @@
-TARGET = harbour-storeman
+TARGET = harbour-storeman-cn
 
 QT += concurrent dbus
 CONFIG += sailfishapp
@@ -93,7 +93,7 @@ HEADERS += \
     src/orntagappsmodel.h
 
 OTHER_FILES += \
-    qml/harbour-storeman.qml \
+    qml/harbour-storeman-cn.qml \
     qml/cover/CoverPage.qml \
     qml/pages/RecentAppsPage.qml \
     qml/pages/ApplicationPage.qml \
@@ -151,19 +151,21 @@ OTHER_FILES += \
 
 OTHER_FILES += \
     scripts/update_categories.py \
-    rpm/harbour-storeman.changes \
-    rpm/harbour-storeman.spec \
-    rpm/harbour-storeman.yaml \
-    harbour-storeman.desktop \
-    icons/harbour-storeman.svg \
+    rpm/harbour-storeman-cn.changes \
+    rpm/harbour-storeman-cn.spec \
+    rpm/harbour-storeman-cn.yaml \
+    icons/harbour-storeman-cn.svg \
     .gitignore
 
-privileges.files = rpm/harbour-storeman
+privileges.files = rpm/harbour-storeman-cn
 privileges.path = $$INSTALL_ROOT/usr/share/mapplauncherd/privileges.d/
 
-dbus.files = rpm/harbour.storeman.service
+dbus.files = rpm/harbour.storeman.cn.service
 dbus.path = $$INSTALL_ROOT/usr/share/dbus-1/services
 
 INSTALLS += privileges dbus
 
 include(translations/translations.pri)
+
+DISTFILES += \
+    harbour-storeman-cn.desktop

@@ -90,10 +90,10 @@ ApplicationWindow
     }
 
     DBusAdaptor {
-        service: "harbour.storeman.service"
-        iface: "harbour.storeman.service"
-        path: "/harbour/storeman/service"
-        xml: "  <interface name=\"harbour.storeman.service\">\n" +
+        service: "harbour.storeman.cn.service"
+        iface: "harbour.storeman.cn.service"
+        path: "/harbour/storeman/cn/service"
+        xml: "  <interface name=\"harbour.storeman.cn.service\">\n" +
              "    <method name=\"openPage\"/>\n" +
              "  </interface>\n"
 
@@ -135,9 +135,9 @@ ApplicationWindow
         appIcon: "image://theme/icon-lock-warning"
         remoteActions: [ {
                 name: "default",
-                service: "harbour.storeman.service",
-                path: "/harbour/storeman/service",
-                iface: "harbour.storeman.service",
+                service: "harbour.storeman.cn.service",
+                path: "/harbour/storeman/cn/service",
+                iface: "harbour.storeman.cn.service",
                 method: "openPage",
                 arguments: [ "AuthorisationDialog", {} ]
             } ]
@@ -155,9 +155,9 @@ ApplicationWindow
         body: qsTrId("orn-updates-available-body")
         remoteActions: [ {
                 name: "default",
-                service: "harbour.storeman.service",
-                path: "/harbour/storeman/service",
-                iface: "harbour.storeman.service",
+                service: "harbour.storeman.cn.service",
+                path: "/harbour/storeman/cn/service",
+                iface: "harbour.storeman.cn.service",
                 method: "openPage",
                 arguments: [ "InstalledAppsPage", {} ]
             } ]
@@ -172,9 +172,9 @@ ApplicationWindow
         previewBody: qsTrId("orn-view-details")
         remoteActions: [ {
                 name: "default",
-                service: "harbour.storeman.service",
-                path: "/harbour/storeman/service",
-                iface: "harbour.storeman.service",
+                service: "harbour.storeman.cn.service",
+                path: "/harbour/storeman/cn/service",
+                iface: "harbour.storeman.cn.service",
                 method: "openPage",
                 arguments: [ "ErrorPage", { message: body } ]
             } ]

@@ -1,4 +1,4 @@
-Name: harbour-storeman
+Name: harbour-storeman-cn
 Summary: OpenRepos Client for Sailfish OS
 Version: 0.0.28
 Release: 1
@@ -44,4 +44,4 @@ Files:
   - '%{_datadir}/applications/%{name}.desktop'
   - '%{_datadir}/icons/hicolor/*/apps/%{name}.png'
   - '%{_datadir}/mapplauncherd/privileges.d/%{name}'
-  - '%{_datadir}/dbus-1/services/harbour.storeman.service'
+  - '%{_datadir}/dbus-1/services/harbour.storeman.cn.service'
