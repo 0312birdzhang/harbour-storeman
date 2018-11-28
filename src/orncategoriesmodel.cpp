@@ -1,12 +1,13 @@
 #include "orncategoriesmodel.h"
-#include "orncategorylistitem.h"
-#include "ornapirequest.h"
 
 #include <QUrl>
 #include <QNetworkRequest>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+
+#include <functional>
+
 
 OrnCategoriesModel::OrnCategoriesModel(QObject *parent)
     : OrnAbstractListModel(false, parent)
@@ -19,16 +20,16 @@ QVariant OrnCategoriesModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    auto category = static_cast<OrnCategoryListItem *>(mData[index.row()]);
+    const auto &category = mData[index.row()];
     switch (role) {
     case CategoryIdRole:
-        return category->categoryId;
+        return category.categoryId;
     case AppsCountRole:
-        return category->appsCount;
+        return category.appsCount;
     case DepthRole:
-        return category->depth;
+        return category.depth;
     case NameRole:
-        return category->name;
+        return category.name;
     default:
         return QVariant();
     }
@@ -40,7 +41,7 @@ void OrnCategoriesModel::fetchMore(const QModelIndex &parent)
     {
         return;
     }
-    OrnAbstractListModel::apiCall(QStringLiteral("categories"));
+    OrnAbstractListModel::fetch(QStringLiteral("categories"));
 }
 
 QHash<int, QByteArray> OrnCategoriesModel::roleNames() const
@@ -53,7 +54,7 @@ QHash<int, QByteArray> OrnCategoriesModel::roleNames() const
     };
 }
 
-void OrnCategoriesModel::onJsonReady(const QJsonDocument &jsonDoc)
+void OrnCategoriesModel::processReply(const QJsonDocument &jsonDoc)
 {
     auto categoriesArray = jsonDoc.array();
     if (categoriesArray.isEmpty())
@@ -62,15 +63,38 @@ void OrnCategoriesModel::onJsonReady(const QJsonDocument &jsonDoc)
         return;
     }
 
-    OrnItemList list;
-    for (const QJsonValueRef category: categoriesArray)
+    QString childrenKey(QStringLiteral("childrens"));
+    std::function<bool(const OrnCategoryListItem &a, const OrnCategoryListItem &b)> compare =
+            [](const OrnCategoryListItem &a, const OrnCategoryListItem &b) -> bool
     {
-        list << OrnCategoryListItem::parse(category.toObject());
+        return a.name < b.name;
+    };
+    std::function<void(std::deque<OrnCategoryListItem>&, const QJsonObject&)> parse;
+    parse = [&childrenKey, &compare, &parse](std::deque<OrnCategoryListItem> &data, const QJsonObject &jsonObject)
+    {
+        data.emplace_back(jsonObject);
+        if (jsonObject.contains(childrenKey))
+        {
+            auto childrenArray = jsonObject[childrenKey].toArray();
+            for (const QJsonValueRef child : childrenArray)
+            {
+                parse(data, child.toObject());
+            }
+            auto end = data.end();
+            std::sort(end - childrenArray.size(), end, compare);
+        }
+    };
+
+    for (const QJsonValueRef category : categoriesArray)
+    {
+        parse(mData, category.toObject());
     }
-    this->beginInsertRows(QModelIndex(), 0, list.size() - 1);
-    mData = list;
-    qDebug() << list.size() << "items have been added to the model";
+
+    auto size = mData.size();
+    this->beginInsertRows(QModelIndex(), 0, size - 1);
     this->endInsertRows();
-    emit this->replyProcessed();
+    qDebug() << size << "items have been added to the model";
+    mFetching = false;
     mCanFetchMore = false;
+    emit this->fetchingChanged();
 }

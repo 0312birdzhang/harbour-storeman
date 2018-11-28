@@ -58,7 +58,7 @@ PullDownMenu {
     MenuItem {
         id: installMenuItem
         visible: text
-        enabled: _enableMenu
+        enabled: _enableMenu && app.packageName
         text: {
             switch (_packageStatus) {
             case OrnPm.PackageAvailable:
@@ -69,7 +69,11 @@ PullDownMenu {
                 //% "Remove"
                 return qsTrId("orn-remove")
             default:
-                return ""
+                // TODO: This also should be shown for apps with no solved packages
+                // (for example when there is no i486 packages)
+                //% "No packages available"
+                return app.packageName ? "" : qsTrId("orn-no-packages")
+
             }
         }
 
@@ -79,9 +83,12 @@ PullDownMenu {
                 OrnPm.installPackage(app.availableId)
                 break
             case OrnPm.PackageInstalled:
+            case OrnPm.PackageUpdateAvailable:
                 Remorse.popupAction(page, qsTrId("orn-removing"), function() {
                     OrnPm.removePackage(app.installedId)
                 })
+                break
+            default:
                 break
             }
         }

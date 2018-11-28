@@ -11,7 +11,7 @@ quint32 OrnCategoryAppsModel::categoryId() const
     return mCategoryId;
 }
 
-void OrnCategoryAppsModel::setCategoryId(const quint32 &categoryId)
+void OrnCategoryAppsModel::setCategoryId(quint32 categoryId)
 {
     if (mCategoryId != categoryId)
     {
@@ -27,5 +27,5 @@ void OrnCategoryAppsModel::fetchMore(const QModelIndex &parent)
     {
         return;
     }
-    OrnAbstractListModel::apiCall(QStringLiteral("categories/%0/apps").arg(mCategoryId));
+    OrnAbstractListModel::fetch(QStringLiteral("categories/%0/apps").arg(mCategoryId));
 }

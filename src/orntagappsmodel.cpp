@@ -10,7 +10,7 @@ quint32 OrnTagAppsModel::tagId() const
     return mTagId;
 }
 
-void OrnTagAppsModel::setTagId(const quint32 &tagId)
+void OrnTagAppsModel::setTagId(quint32 tagId)
 {
     if (mTagId != tagId)
     {
@@ -27,5 +27,5 @@ void OrnTagAppsModel::fetchMore(const QModelIndex &parent)
         return;
     }
 
-    OrnAbstractListModel::apiCall(QStringLiteral("tags/%1/apps").arg(mTagId));
+    OrnAbstractListModel::fetch(QStringLiteral("tags/%1/apps").arg(mTagId));
 }

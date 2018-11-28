@@ -1,6 +1,5 @@
 #include "ornabstractappsmodel.h"
 #include "ornapplistitem.h"
-#include "ornapirequest.h"
 #include "ornpm.h"
 
 OrnAbstractAppsModel::OrnAbstractAppsModel(bool fetchable, QObject *parent)
@@ -10,15 +9,14 @@ OrnAbstractAppsModel::OrnAbstractAppsModel(bool fetchable, QObject *parent)
             this, &OrnAbstractAppsModel::onPackageStatusChanged);
 }
 
-void OrnAbstractAppsModel::onPackageStatusChanged(const QString &packageName, const int &status)
+void OrnAbstractAppsModel::onPackageStatusChanged(const QString &packageName, int status)
 {
     Q_UNUSED(status)
 
     auto size = mData.size();
-    for (int i = 0; i < size; ++i)
+    for (size_t i = 0; i < size; ++i)
     {
-        auto app = static_cast<OrnAppListItem *>(mData[i]);
-        if (app->package == packageName)
+        if (mData[i].package == packageName)
         {
             auto ind = this->createIndex(i, 0);
             emit this->dataChanged(ind, ind, {PackageStatusRole});
@@ -34,31 +32,31 @@ QVariant OrnAbstractAppsModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    auto app = static_cast<OrnAppListItem *>(mData[index.row()]);
+    const auto &app = mData[index.row()];
     switch (role)
     {
     case SortRole:
-        return app->title.toLower();
+        return app.title.toLower();
     case PackageStatusRole:
-        return OrnPm::instance()->packageStatus(app->package);
+        return OrnPm::instance()->packageStatus(app.package);
     case AppIdRole:
-        return app->appId;
+        return app.appId;
     case CreateDateRole:
-        return QDateTime::fromMSecsSinceEpoch(qint64(app->created) * 1000).date();
+        return QDateTime::fromMSecsSinceEpoch(qint64(app.created) * 1000).date();
     case RatingCountRole:
-        return app->ratingCount;
+        return app.ratingCount;
     case RatingRole:
-        return app->rating;
+        return app.rating;
     case TitleRole:
-        return app->title;
+        return app.title;
     case UserNameRole:
-        return app->userName;
+        return app.userName;
     case IconSourceRole:
-        return app->iconSource;
+        return app.iconSource;
     case SinceUpdateRole:
-        return app->sinceUpdate;
+        return app.sinceUpdate;
     case CategoryRole:
-        return app->category;
+        return app.category;
     default:
         return QVariant();
     }
@@ -78,9 +76,4 @@ QHash<int, QByteArray> OrnAbstractAppsModel::roleNames() const
         { SinceUpdateRole,   "sinceUpdate" },
         { CategoryRole,      "category" }
     };
-}
-
-void OrnAbstractAppsModel::onJsonReady(const QJsonDocument &jsonDoc)
-{
-    OrnAbstractListModel::processReply<OrnAppListItem>(jsonDoc);
 }

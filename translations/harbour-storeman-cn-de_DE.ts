@@ -968,11 +968,27 @@
     </message>
     <message id="orn-smart-check-descr">
         <source>Use the OpenRepos.net API to determine if there are new updates</source>
-        <translation>Verwende die OpenRepos.net-API, um festzustelle, ob neue Updates verfügbar sind</translation>
+        <translation>Verwende die OpenRepos.net-API, um festzustellen, ob neue Updates verfügbar sind</translation>
     </message>
     <message id="orn-reload">
         <source>Reload</source>
         <translation>Erneut laden</translation>
+    </message>
+    <message id="orn-no-packages">
+        <source>No packages available</source>
+        <translation>Keine Pakete verfügbar</translation>
+    </message>
+    <message id="orn-error-comment-sending">
+        <source>Error sending comment</source>
+        <translation>Fehler beim Senden des Kommentars</translation>
+    </message>
+    <message id="orn-error-comment-deletion">
+        <source>Error deleting comment</source>
+        <translation>Fehler beim Löschen des Kommentars</translation>
+    </message>
+    <message id="orn-error-network">
+        <source>Network error</source>
+        <translation>Netzwerkfehler</translation>
     </message>
 </context>
 </TS>

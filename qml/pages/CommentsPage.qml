@@ -5,6 +5,7 @@ import "../components"
 
 Page {
     property alias commentField: commentsList.headerItem
+    property int appId
     property int userId
     property string userName
     property bool hasComments: false
@@ -52,12 +53,10 @@ Page {
     }
 
     Connections {
-        target: OrnClient
-        onCommentAdded: {
-            commentsModel.addComment(cid)
-            hasComments = true
-        }
-        onCommentEdited: commentsModel.editComment(cid)
+        target: commentsModel
+
+        onRowsInserted: hasComments = commentsModel.rowCount() > 0
+        onRowsRemoved: hasComments = commentsModel.rowCount() > 0
     }
 
     Timer {
@@ -83,7 +82,7 @@ Page {
         PageHeader {
             id: pageHeader
             // Hide header when typing comment
-            height: orientation === Orientation.Landscape && commentField.item.isActive ?
+            height: page.isLandscape && commentField.item.isActive ?
                         0.0 : _preferredHeight + Theme.paddingMedium
             visible: height > 0.0
             //% "Comments"
@@ -91,6 +90,43 @@ Page {
             description: userName
 
             Behavior on height { NumberAnimation { } }
+        }
+
+        BusyIndicator {
+            size: BusyIndicatorSize.Large
+            anchors.centerIn: parent
+            running: !viewPlaceholder.text &&
+                     commentsList.count === 0 && hasComments &&
+                     !menu.active
+        }
+
+        ViewPlaceholder {
+            id: viewPlaceholder
+            enabled: text && !commentField.item.isActive
+            text: {
+                hintText = ""
+                if (!networkManager.online) {
+                    return qsTrId("orn-network-idle")
+                }
+                if (commentsModel.networkError) {
+                    hintText = qsTrId("orn-pull-refresh")
+                    return qsTrId("orn-network-error")
+                }
+                if (commentsList.count === 0 && !hasComments) {
+                    if (OrnClient.userId === userId) {
+                        //: This will be shown to an application author
+                        //% "Wait for users' feedback"
+                        hintText = qsTrId("orn-comments-wait")
+                    } else {
+                        //: This will be shown to a normal user
+                        //% "Be the first to comment"
+                        hintText = qsTrId("orn-comments-bethefirst")
+                    }
+                    //% "There is nothing here yet"
+                    return qsTrId("orn-comments-nocomments")
+                }
+                return ""
+            }
         }
 
         SilicaListView {
@@ -114,43 +150,6 @@ Page {
             delegate: CommentDelegate { }
 
             VerticalScrollDecorator { }
-        }
-
-        BusyIndicator {
-            size: BusyIndicatorSize.Large
-            anchors.centerIn: parent
-            running: !viewPlaceholder.text &&
-                     commentsList.count === 0 && hasComments &&
-                     !menu.active
-        }
-
-        ViewPlaceholder {
-            id: viewPlaceholder
-            enabled: text && !commentField.item.isActive
-            text: {
-                hintText = ""
-                if (!networkManager.online) {
-                    return qsTrId("orn-network-idle")
-                }
-                if (commentsModel.apiRequest.networkError) {
-                    hintText = qsTrId("orn-pull-refresh")
-                    return qsTrId("orn-network-error")
-                }
-                if (commentsList.count === 0 && !hasComments) {
-                    if (OrnClient.userId === userId) {
-                        //: This will be shown to an application author
-                        //% "Wait for users' feedback"
-                        hintText = qsTrId("orn-comments-wait")
-                    } else {
-                        //: This will be shown to a normal user
-                        //% "Be the first to comment"
-                        hintText = qsTrId("orn-comments-bethefirst")
-                    }
-                    //% "There is nothing here yet"
-                    return qsTrId("orn-comments-nocomments")
-                }
-                return ""
-            }
         }
     }
 

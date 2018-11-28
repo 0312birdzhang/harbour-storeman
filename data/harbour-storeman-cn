@@ -1,0 +1,2 @@
+# Allow harbour-storeman-cn to manage packages
+/usr/bin/harbour-storeman-cn,r

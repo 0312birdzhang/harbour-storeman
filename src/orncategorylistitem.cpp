@@ -1,6 +1,5 @@
 #include "orncategorylistitem.h"
-#include "orn.h"
-#include "ornapirequest.h"
+#include "ornutils.h"
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -8,7 +7,7 @@
 
 #include <QDebug>
 
-const QMap<quint32, const char*> OrnCategoryListItem::categories{
+static const QMap<quint32, const char*> categories{
     //% "Coding Competition"
     { 3092, QT_TRID_NOOP("orn-cat-coding-competition") },
     //% "Applications"
@@ -78,13 +77,13 @@ const QMap<quint32, const char*> OrnCategoryListItem::categories{
 };
 
 OrnCategoryListItem::OrnCategoryListItem(const QJsonObject &jsonObject)
-    : categoryId(Orn::toUint(jsonObject[QStringLiteral("tid")]))
-    , appsCount(Orn::toUint(jsonObject[QStringLiteral("apps_count")]))
+    : categoryId(OrnUtils::toUint(jsonObject[QStringLiteral("tid")]))
+    , appsCount(OrnUtils::toUint(jsonObject[QStringLiteral("apps_count")]))
     , depth(jsonObject[QStringLiteral("depth")].toVariant().toUInt())
     , name(categoryName(categoryId))
 {}
 
-QString OrnCategoryListItem::categoryName(const quint32 &tid)
+QString OrnCategoryListItem::categoryName(quint32 tid)
 {
     if (categories.contains(tid))
     {
@@ -97,27 +96,4 @@ QString OrnCategoryListItem::categoryName(const quint32 &tid)
         //% "Unknown category"
         return qtTrId("orn-cat-unknown2");
     }
-}
-
-OrnItemList OrnCategoryListItem::parse(const QJsonObject &jsonObject)
-{
-    OrnItemList list;
-    QString childrenKey(QStringLiteral("childrens"));
-    if (jsonObject.contains(childrenKey))
-    {
-        auto childrenArray = jsonObject[childrenKey].toArray();
-        for (const QJsonValueRef child : childrenArray)
-        {
-            list << OrnCategoryListItem::parse(child.toObject());
-        }
-        std::sort(list.begin(), list.end(),
-                  [](OrnAbstractListItem *a, OrnAbstractListItem *b)
-        {
-            return static_cast<OrnCategoryListItem *>(a)->name <
-                   static_cast<OrnCategoryListItem *>(b)->name;
-        });
-
-    }
-    list.prepend(new OrnCategoryListItem(jsonObject));
-    return list;
 }

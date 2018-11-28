@@ -50,20 +50,17 @@ Page {
         BusyIndicator {
             size: BusyIndicatorSize.Large
             anchors.centerIn: parent
-            running: !viewPlaceholder.text &&
-                     tagsList.count === 0 &&
-                     !menu.active
+            running: tagsModel.fetching && !menu.active
         }
 
         ViewPlaceholder {
-            id: viewPlaceholder
             enabled: text
             text: {
                 hintText = ""
                 if (!networkManager.online) {
                     return qsTrId("orn-network-idle")
                 }
-                if (tagsModel.apiRequest.networkError) {
+                if (tagsModel.networkError) {
                     hintText = qsTrId("orn-pull-refresh")
                     return qsTrId("orn-network-error")
                 }

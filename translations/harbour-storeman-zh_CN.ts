@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<TS version="2.1" language="zh_CN">
 <context>
     <name></name>
     <message id="orn-notrated">
         <source>Not rated yet</source>
-        <translation>Inte betygsatt än</translation>
+        <translation>暂无评分</translation>
     </message>
     <message id="orn-repositories">
         <source>Repositories</source>
-        <translation>Förråd</translation>
+        <translation>软件源</translation>
     </message>
     <message id="orn-refresh">
         <source>Refresh</source>
-        <translation>Uppdatera</translation>
+        <translation>刷新</translation>
     </message>
     <message id="orn-disable">
         <source>Disable</source>
-        <translation>Inaktivera</translation>
+        <translation>禁用</translation>
     </message>
     <message id="orn-enable">
         <source>Enable</source>
-        <translation>Aktivera</translation>
+        <translation>启用</translation>
     </message>
     <message id="orn-enabled">
         <source>Enabled</source>
-        <translation>Aktiverat</translation>
+        <translation>已启用</translation>
     </message>
     <message id="orn-disabled">
         <source>Disabled</source>
-        <translation>Inaktiverat</translation>
+        <translation>已禁用</translation>
     </message>
     <message id="orn-recently-updated">
         <source>Recently updated</source>
-        <translation>Nyligen uppdaterat</translation>
+        <translation>最近更新</translation>
     </message>
     <message id="orn-network-idle">
         <source>Network is unavailable</source>
-        <translation>Nätverket är otillgängligt</translation>
+        <translation>网络不可用</translation>
     </message>
     <message id="orn-today">
         <source>Today</source>
-        <translation>I dag</translation>
+        <translation>今天</translation>
     </message>
     <message id="orn-yesterday">
         <source>Yesterday</source>
-        <translation>I går</translation>
+        <translation>昨天</translation>
     </message>
     <message id="orn-this-week">
         <source>This week</source>
-        <translation>Denna vecka</translation>
+        <translation>本周</translation>
     </message>
     <message id="orn-this-month">
         <source>This month</source>
-        <translation>Denna månad</translation>
+        <translation>本月</translation>
     </message>
     <message id="orn-month-format">
         <source>%0 %1</source>
@@ -62,59 +62,59 @@
     </message>
     <message id="orn-adding-repo">
         <source>Adding</source>
-        <translation>Lägger till</translation>
+        <translation>加入</translation>
     </message>
     <message id="orb-remove">
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>移除</translation>
     </message>
     <message id="orn-removing">
         <source>Removing</source>
-        <translation>Tar bort</translation>
+        <translation>正在移除</translation>
     </message>
     <message id="orn-error">
         <source>An error occured</source>
-        <translation>Ett fel inträffade</translation>
+        <translation>出错</translation>
     </message>
     <message id="orn-repo-add">
         <source>Add repository</source>
-        <translation>Lägg till förrådet</translation>
+        <translation>添加软件源</translation>
     </message>
     <message id="orn-repo-enable">
         <source>Enable repository</source>
-        <translation>Aktivera förrådet</translation>
+        <translation>启用软件源</translation>
     </message>
     <message id="orn-install">
         <source>Install</source>
-        <translation>Installera</translation>
+        <translation>安装</translation>
     </message>
     <message id="orn-remove">
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>移除</translation>
     </message>
     <message id="orn-launch">
         <source>Launch</source>
-        <translation>Starta</translation>
+        <translation>打开</translation>
     </message>
     <message id="orn-package-installed">
         <source>Package %0 was successfully installed</source>
-        <translation>Paketet %0 installerades korrekt</translation>
+        <translation>安装包%0被成功安装</translation>
     </message>
     <message id="orn-package-removed">
         <source>Package %0 was successfully removed</source>
-        <translation>Paketet %0 togs bort korrekt</translation>
+        <translation>应用%0被成功移除</translation>
     </message>
     <message id="orn-installed">
         <source>Installed</source>
-        <translation>Installerat</translation>
+        <translation>已安装</translation>
     </message>
     <message id="orn-version-installed">
         <source>Installed version</source>
-        <translation>Installerad version</translation>
+        <translation>安装版本</translation>
     </message>
     <message id="orn-version-updated">
         <source>Last updated</source>
-        <translation>Senast uppdaterad</translation>
+        <translation>最后更新</translation>
     </message>
     <message id="orn-dt-format">
         <source>yyyy-MM-dd hh:mm</source>
@@ -123,430 +123,428 @@
     </message>
     <message id="orn-version-noavailable">
         <source>No versions available</source>
-        <translation>Inga versioner tillgängliga</translation>
+        <translation>没有可供安装版本</translation>
     </message>
     <message id="orn-comments">
         <source>Comments</source>
-        <translation>Kommentarer</translation>
+        <translation>评论</translation>
     </message>
     <message id="orn-author-apps">
         <source>More by %0</source>
-        <translation>Mer av %0</translation>
+        <translation>同样来自%0</translation>
     </message>
     <message id="orn-cat-coding-competition">
         <source>Coding Competition</source>
-        <translation>Programmeringstävling</translation>
+        <translation>编码比赛</translation>
     </message>
     <message id="orn-cat-applications">
         <source>Applications</source>
-        <translation>Applikationer</translation>
+        <translation>应用</translation>
     </message>
     <message id="orn-cat-application">
         <source>Application</source>
-        <translation>Applikation</translation>
+        <translation>应用</translation>
     </message>
     <message id="orn-cat-ambience-themes">
         <source>Ambience &amp; Themes</source>
-        <translation>Atmosfär &amp; Tema</translation>
+        <translation>氛围和主题</translation>
     </message>
     <message id="orn-cat-business">
         <source>Business</source>
-        <translation>Affärslivet</translation>
+        <translation>商业</translation>
     </message>
     <message id="orn-cat-city-guides-maps">
         <source>City guides &amp; maps</source>
-        <translation>Stadsguider &amp; kartor</translation>
+        <translation>城市导航和地图</translation>
     </message>
     <message id="orn-cat-education-science">
         <source>Education &amp; Science</source>
-        <translation>Utbildning &amp; Vetenskap</translation>
+        <translation>教育和科学</translation>
     </message>
     <message id="orn-cat-entertainment">
         <source>Entertainment</source>
-        <translation>Underhållning</translation>
+        <translation>娱乐</translation>
     </message>
     <message id="orn-cat-music">
         <source>Music</source>
-        <translation>Musik</translation>
+        <translation>音乐</translation>
     </message>
     <message id="orn-cat-network">
         <source>Network</source>
-        <translation>Nätverk</translation>
+        <translation>网络</translation>
     </message>
     <message id="orn-cat-news-info">
         <source>News &amp; info</source>
-        <translation>Nyheter &amp; Info</translation>
+        <translation>新闻和消息</translation>
     </message>
     <message id="orn-cat-patches">
         <source>Patches</source>
-        <translation>Patchar</translation>
+        <translation>补丁</translation>
     </message>
     <message id="orn-cat-photo-video">
         <source>Photo &amp; video</source>
-        <translation>Foto &amp; Film</translation>
+        <translation>照片和视频</translation>
     </message>
     <message id="orn-cat-social-networks">
         <source>Social Networks</source>
-        <translation>Sociala nätverk</translation>
+        <translation>社交网络</translation>
     </message>
     <message id="orn-cat-sports">
         <source>Sports</source>
-        <translation>Sport</translation>
+        <translation>运动</translation>
     </message>
     <message id="orn-cat-system">
         <source>System</source>
-        <translation>System</translation>
+        <translation>系统</translation>
     </message>
     <message id="orn-cat-unknown">
         <source>Unknown</source>
-        <translation>Okänt</translation>
+        <translation>未知</translation>
     </message>
     <message id="orn-cat-utilities">
         <source>Utilities</source>
-        <translation>Verktyg</translation>
+        <translation>工具</translation>
     </message>
     <message id="orn-cat-games">
         <source>Games</source>
-        <translation>Spel</translation>
+        <translation>游戏</translation>
     </message>
     <message id="orn-cat-game">
         <source>Game</source>
-        <translation>Spel</translation>
+        <translation>游戏</translation>
     </message>
     <message id="orn-cat-action">
         <source>Action</source>
-        <translation>Action</translation>
+        <translation>动作</translation>
     </message>
     <message id="orn-cat-adventure">
         <source>Adventure</source>
-        <translation>Äventyr</translation>
+        <translation>冒险</translation>
     </message>
     <message id="orn-cat-arcade">
         <source>Arcade</source>
-        <translation>Arkad</translation>
+        <translation>街机</translation>
     </message>
     <message id="orn-cat-card-casino">
         <source>Card &amp; casino</source>
-        <translation>Kort &amp; Kasino</translation>
+        <translation>卡牌和赌场</translation>
     </message>
     <message id="orn-cat-education">
         <source>Education</source>
-        <translation>Utbildning</translation>
+        <translation>教育</translation>
     </message>
     <message id="orn-cat-puzzle">
         <source>Puzzle</source>
-        <translation>Pussel</translation>
+        <translation>解谜</translation>
     </message>
     <message id="orn-cat-strategy">
         <source>Strategy</source>
-        <translation>Strategi</translation>
+        <translation>策略</translation>
     </message>
     <message id="orn-cat-trivia">
         <source>Trivia</source>
-        <translation>Trivia</translation>
+        <translation>问答游戏</translation>
     </message>
     <message id="orn-cat-translations">
         <source>Translations</source>
-        <translation>Översättningar</translation>
+        <translation>翻译</translation>
     </message>
     <message id="orn-cat-fonts">
         <source>Fonts</source>
-        <translation>Teckensnitt</translation>
+        <translation>字体</translation>
     </message>
     <message id="orn-cat-libraries">
         <source>Libraries</source>
-        <translation>Bibliotek</translation>
+        <translation>库</translation>
     </message>
     <message id="orn-update-available">
         <source>Update available</source>
-        <translation>Uppdatering tillgänglig</translation>
+        <translation>可用更新</translation>
     </message>
     <message id="orn-update">
         <source>Update</source>
-        <translation>Uppdatera</translation>
+        <translation>更新</translation>
     </message>
     <message id="orn-changelog">
         <source>Changelog</source>
-        <translation>Ändringslogg</translation>
+        <translation>更新日志</translation>
     </message>
     <message id="orn-user-apps">
         <source>User applications</source>
-        <translation>Användarapplikationer</translation>
+        <translation>用户软件</translation>
     </message>
     <message id="orn-comments-withnum">
         <source>Comments (%0)</source>
-        <translation>Kommentarer (%0)</translation>
+        <translation>评论(%0)</translation>
     </message>
     <message id="orn-version-repo-disabled">
         <source>Enable the repository first</source>
-        <translation>Aktivera förrådet först</translation>
+        <translation>先启用软件源</translation>
     </message>
     <message id="orn-search">
         <source>Search</source>
         <extracomment>The search menu item and the search page header text - should be a noun</extracomment>
-        <translation>Sök</translation>
+        <translation>搜索</translation>
     </message>
     <message id="orn-searchpage-placeholder-noresults">
         <source>Nothing found</source>
-        <translation>Inget hittades</translation>
+        <translation>什么都没有找到</translation>
     </message>
     <message id="orn-searchpage-placeholder-noresults-hint">
         <source>Try to change search keywords</source>
-        <translation>Försök ändra sökorden</translation>
+        <translation>尝试更改搜索关键词</translation>
     </message>
     <message id="orn-searchfield-placeholder">
         <source>Search</source>
         <extracomment>The search field placeholder text - should be a verb</extracomment>
-        <translation>Sök</translation>
+        <translation>搜索</translation>
     </message>
     <message id="orn-searchpage-placeholder-default">
         <source>Search results will be shown here</source>
-        <translation>Sökresultat visas här</translation>
+        <translation>搜索结果会在这里显示</translation>
     </message>
     <message id="orn-searchpage-placeholder-default-hint">
         <source>Type some keywords in the field above</source>
-        <translation>Skriv några sökord i fältet ovan</translation>
+        <translation>在上述区域输入关键词</translation>
     </message>
     <message id="orn-about">
         <source>About Storeman</source>
-        <translation>Om Storeman</translation>
+        <translation>关于storeman</translation>
     </message>
     <message id="orn-translations">
         <source>Translations</source>
-        <translation>Översättningar</translation>
+        <translation>翻译</translation>
     </message>
     <message id="orn-coordinators">
         <source>Coordinators</source>
-        <translation>Koordinatorer</translation>
+        <translation>协助者</translation>
     </message>
     <message id="orn-translators">
         <source>Translators</source>
-        <translation>Översättare</translation>
+        <translation>翻译者</translation>
     </message>
     <message id="orn-reviewers">
         <source>Reviewers</source>
-        <translation>Granskare</translation>
+        <translation>审阅人</translation>
     </message>
     <message id="orn-app-description">
         <source>Unofficial native OpenRepos.net client for Sailfish&amp;nbsp;OS</source>
-        <translation>Inofficiell OpenRepos-klient för Sailfish&amp;nbsp;OS</translation>
+        <translation>非官方openrepos.net旗鱼系统客户端</translation>
     </message>
     <message id="orn-report">
         <source>Report an Issue</source>
-        <translation>Rapportera ett problem</translation>
+        <translation>报告问题</translation>
     </message>
     <message id="orn-app-licensing">
         <source>This is an open source software which is distributed under the terms of the&lt;br /&gt;&lt;a href=&apos;%0&apos;&gt;MIT License&lt;/a&gt;</source>
-        <translation>Detta är öppen källkod, som distribueras under villkoren för &lt;br /&gt;&lt;a href=&apos;%0&apos;&gt;MIT-licensen&lt;/a&gt;</translation>
+        <translation>这是一个在&lt;br /&gt;&lt;a href=&apos;%0&apos;&gt;MIT License&lt;/a&gt;下分发的开源软件</translation>
     </message>
     <message id="orn-network-error">
         <source>A network error occurred</source>
-        <translation>Ett nätverksfel inträffade</translation>
+        <translation>出现一个网络错误</translation>
     </message>
     <message id="orn-pull-refresh">
         <source>Pull down to refresh</source>
-        <translation>Dra neråt för att uppdatera</translation>
+        <translation>下拉以更新</translation>
     </message>
     <message id="orn-development">
         <source>Development</source>
-        <translation>Utveckling</translation>
+        <translation>开发</translation>
     </message>
     <message id="orn-developers">
         <source>Developers</source>
-        <translation>Utvecklare</translation>
+        <translation>开发者</translation>
     </message>
     <message id="orn-appicon">
         <source>Application Icon</source>
-        <translation>Programikon</translation>
+        <translation>应用图标</translation>
     </message>
     <message id="orn-sources">
         <source>Source Code</source>
-        <translation>Källkod</translation>
+        <translation>源代码</translation>
     </message>
     <message id="orn-just-now">
         <source>Just now</source>
-        <translation>Just nu</translation>
+        <translation>刚刚</translation>
     </message>
     <message id="orn-mins-ago" numerus="yes">
         <source>%n minute(s) ago</source>
         <translation>
-            <numerusform>%n minut sedan</numerusform>
-            <numerusform>%n minuter sedan</numerusform>
+            <numerusform>%n分钟以前</numerusform>
         </translation>
     </message>
     <message id="orn-hours-ago" numerus="yes">
         <source>%n hour(s) ago</source>
         <translation>
-            <numerusform>%n timma sedan</numerusform>
-            <numerusform>%n timmar sedan</numerusform>
+            <numerusform>%n小时以前</numerusform>
         </translation>
     </message>
     <message id="orn-reply-to">
         <source>Reply to %0</source>
         <extracomment>Active label to navigate to the original comment - should be a noun</extracomment>
-        <translation>Svar till %0</translation>
+        <translation> 回复%0</translation>
     </message>
     <message id="orn-categories">
         <source>Categories</source>
-        <translation>Kategorier</translation>
+        <translation>分类</translation>
     </message>
     <message id="orn-category-noapps">
         <source>Currently there are no apps in this category</source>
-        <translation>Det finns ännu inga appar i denna kategori</translation>
+        <translation>此分类暂无软件</translation>
     </message>
     <message id="orn-cat-unknown2">
         <source>Unknown category</source>
-        <translation>Okänd kategori</translation>
+        <translation>未知分类</translation>
     </message>
     <message id="orn-comment-body">
         <source>Your comment</source>
-        <translation>Din kommentar</translation>
+        <translation>你的评论</translation>
     </message>
     <message id="orn-reply">
         <source>Reply</source>
         <extracomment>Menu item to reply for a comment - should be a verb</extracomment>
-        <translation>Svara</translation>
+        <translation>回复</translation>
     </message>
     <message id="orn-edit">
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>编辑</translation>
     </message>
     <message id="orn-thisdevice">
         <source>This Device</source>
-        <translation>Denna enhet</translation>
+        <translation>这个设备</translation>
     </message>
     <message id="orn-login-menu-item">
         <source>Log in to OpenRepos.net</source>
-        <translation>Logga in på OpenRepos.net</translation>
+        <translation>登录OpenRepos.net</translation>
     </message>
     <message id="orn-login-action">
         <source>Log in</source>
-        <translation>Lösenord</translation>
+        <translation>登录</translation>
     </message>
     <message id="orn-username">
         <source>Username or e-mail address</source>
         <extracomment>A translated string should not be longer than the original</extracomment>
-        <translation>Användarnamn eller e-postadress</translation>
+        <translation>用户名称或邮箱地址</translation>
     </message>
     <message id="orn-login-help">
         <source>Log in to OpenRepos.net to comment applications and reply to others comments.&lt;br /&gt;&lt;br /&gt;Storeman does not store your password or send it to third-parties.</source>
-        <translation>Logga in på OpenRepos.net för att kommentera appar och svara på andras kommentarer.&lt;br /&gt;&lt;br /&gt;Storeman lagrar inte ditt lösenord, eller skickar det till tredje part.</translation>
+        <translation>登录OpenRepos.net以评论应用和回复其它评论。&lt;br /&gt;&lt;br /&gt;Storeman不会储存你的密码或泄露给第三方 。</translation>
     </message>
     <message id="orn-loggedin-message">
         <source>You have successfully logged in to the OpenRepos.net</source>
-        <translation>Du är inloggad på OpenRepos.net</translation>
+        <translation>你已成功登录OpenRepos.net</translation>
     </message>
     <message id="orn-loggedout-message">
         <source>You have logged out from the OpenRepos.net</source>
-        <translation>Du har loggat ut från OpenRepos.net</translation>
+        <translation> 你已登出OpenRepos.net</translation>
     </message>
     <message id="orn-login-error-title">
         <source>Login error</source>
-        <translation>Inloggningsfel</translation>
+        <translation>登录错误</translation>
     </message>
     <message id="orn-login-error-message">
         <source>Could not log in the OpenRepos.net - check your credentials and network connection</source>
-        <translation>Kunde inte logga in på OpenRepos.net. Kontrollera dina inloggningsuppgifter och din nätverksanslutning.</translation>
+        <translation>不能登录OpenRepos.net，请检查你的凭证和网络连接</translation>
     </message>
     <message id="orn-loggedin-menu-item">
         <source>Logged in as %0</source>
-        <translation>inloggad som %0</translation>
+        <translation>登录为%0</translation>
     </message>
     <message id="orn-logout-action">
         <source>Log out</source>
         <extracomment>Menu item</extracomment>
-        <translation>Logga ut</translation>
+        <translation>登出</translation>
     </message>
     <message id="orn-logout-remorse">
         <source>Logging out</source>
         <extracomment>Remorse text</extracomment>
-        <translation>Loggar ut</translation>
+        <translation>登出中</translation>
     </message>
     <message id="orn-comment-edit-label">
         <source>Edit your comment</source>
-        <translation>Redigera din kommentar</translation>
+        <translation>编辑你的评论</translation>
     </message>
     <message id="orn-comment-update">
         <source>Update</source>
         <extracomment>Update a comment</extracomment>
-        <translation>Uppdatera</translation>
+        <translation>更新</translation>
     </message>
     <message id="orn-comment-send">
         <source>Send</source>
-        <translation>Skicka</translation>
+        <translation>发送</translation>
     </message>
     <message id="orn-authorisation-expires-summary">
         <source>Authorisation expires</source>
-        <translation>Auktoriseringen upphör</translation>
+        <translation>授权已失效</translation>
     </message>
     <message id="orn-authorisation-expires-body">
         <source>The OpenRepos authorisation expires. Click to reauthorise.</source>
-        <translation>OpenRepos-auktoriseringen upphör. Klicka för att återauktorisera.</translation>
+        <translation>OpenRepos授权已失效，请再次授权</translation>
     </message>
     <message id="orn-authorisation-expired-summary">
         <source>Authorisation expired</source>
-        <translation>Auktoriseringen har upphört</translation>
+        <translation>授权已失效 </translation>
     </message>
     <message id="orn-authorisation-expired-body">
         <source>The OpenRepos authorisation has expired. Click to reauthorise.</source>
-        <translation>OpenRepos-auktoriseringen har upphört. Klicka för att återauktorisera.</translation>
+        <translation>OpenRepos 授权已失效，点击再次授权</translation>
     </message>
     <message id="orn-reauthorise">
         <source>Click to reauthorise</source>
-        <translation>Klicka för att återauktorisera</translation>
+        <translation>点击重新授权</translation>
     </message>
     <message id="orn-enable-all">
         <source>Enable all</source>
-        <translation>Aktivera alla</translation>
+        <translation>全部启用</translation>
     </message>
     <message id="orn-disable-all">
         <source>Disable all</source>
-        <translation>Inaktivera alla</translation>
+        <translation>全部禁用</translation>
     </message>
     <message id="orn-enabling-all">
         <source>Enabling all</source>
-        <translation>Aktiverarar alla</translation>
+        <translation>正在启用全部</translation>
     </message>
     <message id="orn-disabling-all">
         <source>Disabling all</source>
-        <translation>Inaktiverar alla</translation>
+        <translation>正在禁用全部</translation>
     </message>
     <message id="orn-installed-apps">
         <source>Installed Applications</source>
-        <translation>Installerade applikationer</translation>
+        <translation>已安装的应用</translation>
     </message>
     <message id="orn-bookmarks-added">
         <source>The app was added to bookmarks</source>
-        <translation>Appen har lagts till som bokmärke</translation>
+        <translation>软件已加入书签</translation>
     </message>
     <message id="orn-bookmarks-removed">
         <source>The app was removed from bookmarks</source>
-        <translation>Appen har tagits bort från bokmärken</translation>
+        <translation>软件已从书签中移除</translation>
     </message>
     <message id="orn-no-bookmarks">
         <source>Your bookmarked applications will be shown here</source>
-        <translation>Dina bokmärkta appar kommer att visas här</translation>
+        <translation>你收藏的软件会在这里显示</translation>
     </message>
     <message id="orn-bookmarks">
         <source>Bookmarks</source>
-        <translation>Bokmärken</translation>
+        <translation>书签</translation>
     </message>
     <message id="orn-no-repos">
         <source>No OpenRepos repositories have been added yet</source>
-        <translation>Inget OpenRepos-förråd har lagts till än</translation>
+        <translation>到目前为止尚无添加的OpenRepos软件源</translation>
     </message>
     <message id="orn-add-repo-hint">
         <source>You can add a repository from an application page</source>
-        <translation>Du kan lägga till ett förråd från valfri app-sida</translation>
+        <translation>你可以从一个应用页面添加软件源</translation>
     </message>
     <message id="orn-refresh-cache">
         <source>Refresh cache</source>
-        <translation>Uppdatera cachen</translation>
+        <translation>更新缓存</translation>
     </message>
     <message id="orn-tag-underscore">
         <source>U</source>
         <extracomment>Tag underscore</extracomment>
-        <translation>Logga in för att kommentera</translation>
+        <translation>U</translation>
     </message>
     <message id="orn-tag-strong">
         <source>B</source>
@@ -560,216 +558,215 @@
     </message>
     <message id="orn-updates-available-summary">
         <source>Updates available</source>
-        <translation>Uppdateringar tillgängliga</translation>
+        <translation>有可供更新</translation>
     </message>
     <message id="orn-updates-available-preview">
         <source>Click to view updates</source>
-        <translation>Tryck för att visa uppdateringar</translation>
+        <translation>点击查看更新</translation>
     </message>
     <message id="orn-updates-available-body">
         <source>Applications updates are available. Click to view details.</source>
-        <translation>App-uppdateringar finns tillgängliga. Tryck för detaljerad information.</translation>
+        <translation>应用有可供更新，点击查看详情</translation>
     </message>
     <message id="orn-view-details">
         <source>Click to view details</source>
-        <translation>Tryck för att visa detaljer</translation>
+        <translation>点击查看细节</translation>
     </message>
     <message id="orn-error-depresolution">
         <source>Nothing provides %1 needed by %2</source>
         <extracomment>A template string for a dependecy resolution error. %1 is a dependency and %2 is a failed package.</extracomment>
-        <translation>Inget tillhandahåller %1,  som behövs av %2</translation>
+        <translation>没有提供被%2需要的%1</translation>
     </message>
     <message id="orn-backups">
         <source>Backups</source>
-        <translation>Säkerhetskopiera</translation>
+        <translation>备份</translation>
     </message>
     <message id="orn-backup-description">
         <source>Backup and restore repos and installed apps</source>
-        <translation>Säkerhetskopiera och återställ förråd och installerade appar</translation>
+        <translation>备份恢复软件源和安装的软件</translation>
     </message>
     <message id="orn-create-backup">
         <source>Create a backup</source>
-        <translation>Skapa säkerhetskopia</translation>
+        <translation>创建一个备份</translation>
     </message>
     <message id="orn-backup-error">
         <source>Backup error</source>
-        <translation>Säkerhetskopieringsfel</translation>
+        <translation>备份错误</translation>
     </message>
     <message id="orn-backup-error-directory">
         <source>Could not create directory</source>
-        <translation>Kunde inte skapa mapp</translation>
+        <translation>不能创建目录</translation>
     </message>
     <message id="orn-restore-title">
         <source>Restore from a file</source>
-        <translation>Återställ från en fil</translation>
+        <translation>从一个文件恢复</translation>
     </message>
     <message id="orn-restore">
         <source>Restore</source>
-        <translation>Återställ</translation>
+        <translation>恢复</translation>
     </message>
     <message id="orn-restore-hint">
         <source>Restore OpenRepos repositories and installed apps from the selected file. This action will not affect your current repositories and will not remove installed applications.</source>
-        <translation>Återställ OpenRepos-förråd och installerade appar från markerad fil. Denna åtgärd påverkar inte dina aktuella förråd och tar inte bort installerade appar.</translation>
+        <translation>恢复OpenRepos软件源，从选取的文件安装软件。这个操作不会影响你目前的软件源并且不会移除已安装的软件。</translation>
     </message>
     <message id="orn-created">
         <source>Created</source>
-        <translation>Skapad</translation>
+        <translation>创建</translation>
     </message>
     <message id="orn-total-repos">
         <source>Total repositories</source>
-        <translation>Antal förråd</translation>
+        <translation>全部软件源</translation>
     </message>
     <message id="orn-details">
         <source>Details</source>
-        <translation>Detaljerat</translation>
+        <translation>详情</translation>
     </message>
     <message id="orn-backups-placeholder">
         <source>Backups will be shown here</source>
-        <translation>Säkerhetskopior kommer att visas här</translation>
+        <translation>备份会展示在此</translation>
     </message>
     <message id="orn-restoring-repos">
         <source>Restoring repositories</source>
-        <translation>Återställer förråd</translation>
+        <translation>恢复软件源中</translation>
     </message>
     <message id="orn-refreshing-repos">
         <source>Refreshing repositories</source>
-        <translation>Uppdaterar förråd</translation>
+        <translation>更新软件源中</translation>
     </message>
     <message id="orn-searching-packages">
         <source>Searching packages</source>
-        <translation>Söker efter paket</translation>
+        <translation>搜索应用中</translation>
     </message>
     <message id="orn-installing-repos">
         <source>Installing packages</source>
-        <translation>Installerar paket</translation>
+        <translation>安装应用中</translation>
     </message>
     <message id="orn-restoring-title">
         <source>Restoring</source>
-        <translation>Återställer</translation>
+        <translation>恢复中</translation>
     </message>
     <message id="orn-success-backup">
         <source>Successful backup</source>
-        <translation>Lyckad säkerhetskopiering</translation>
+        <translation>备份成功</translation>
     </message>
     <message id="orn-success-restore">
         <source>Successful restore</source>
-        <translation>Lyckad återställning</translation>
+        <translation>恢复成功</translation>
     </message>
     <message id="orn-installed-packages">
         <source>Installed packages</source>
-        <translation>Installerade paket</translation>
+        <translation>安装的应用</translation>
     </message>
     <message id="orn-login2comment">
         <source>Login to comment</source>
-        <translation>Logga in för att kommentera</translation>
+        <translation>登录以评论</translation>
     </message>
     <message id="orn-backup-title">
         <source>Backup to a file</source>
-        <translation>Säkerhetskopiera till en fil</translation>
+        <translation>备份到一个文件</translation>
     </message>
     <message id="orn-backup">
         <source>Backup</source>
-        <translation>Säkerhetskopiera</translation>
+        <translation>备份</translation>
     </message>
     <message id="orn-backup-hint">
         <source>Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.</source>
-        <translation>Säkerhetskopiering låter dig spara dina aktuella OpenRepos-förråd, installerade appar, bokmärken och att återställa dem senare (t.ex. efter en fabriksåterställning). Säkerhetskopian är en lokal fil som sparas i&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt;. &lt;br /&gt;&lt;br /&gt;&lt;b&gt;OBS!&lt;/b&gt; Du måste kopiera dina säkerhetskopior till en säker plats, innan du utför en fabriksåterställning. Det kan vara ditt SD-kort, en extern enhet, molnlagring eller något annat.</translation>
+        <translation>备份允许保存你目前的OpenRepos软件源、已安装的应用和收藏夹，以便后面恢复它们（例如恢复出厂设置后）。一个备份是一个储存于&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt;目录的文件。&lt;br /&gt;&lt;br /&gt;&lt;b&gt;注意！&lt;/b&gt;在执行恢复重置之前，你应该将你的备份手动复制到一个安全的地方。可能是你的储存卡，外部设备，云储存或其它地方。</translation>
     </message>
     <message id="orn-pmstate-initialising">
         <source>Initialising</source>
-        <translation>Startar</translation>
+        <translation>正在初始化</translation>
     </message>
     <message id="orn-pmstate-addingrepo">
         <source>Adding repo %0</source>
-        <translation>Lägger till förråd %0</translation>
+        <translation>正在添加软件源%0</translation>
     </message>
     <message id="orn-pmstate-removingrepo">
         <source>Removing repo %0</source>
-        <translation>Tar bort förråd %0</translation>
+        <translation>正在移除软件源%0</translation>
     </message>
     <message id="orn-pmstate-enablingrepo">
         <source>Enabling repo %0</source>
-        <translation>Aktiverar förråd %0</translation>
+        <translation>正在启用软件源%0</translation>
     </message>
     <message id="orn-pmstate-disablingrepo">
         <source>Disabling repo %0</source>
-        <translation>Avaktiverar förråd %0</translation>
+        <translation> 正在禁用软件源%0</translation>
     </message>
     <message id="orn-pmstate-refreshingrepo">
         <source>Refreshing %0</source>
-        <translation>Uppdaterar %0</translation>
+        <translation>正在更新软件源%0</translation>
     </message>
     <message id="orn-pmstate-installingpackage">
         <source>Installing package %0</source>
-        <translation>Installerar paket %0</translation>
+        <translation>正在安装应用 %0</translation>
     </message>
     <message id="orn-pmstate-removingpackage">
         <source>Removing package %0</source>
-        <translation>Tar bort paket %0</translation>
+        <translation> 正在移除应用%0</translation>
     </message>
     <message id="orn-pmstate-updatingpackage">
         <source>Updating package %0</source>
-        <translation>Uppdaterar paket %0</translation>
+        <translation>  正在更新应用%0</translation>
     </message>
     <message id="orn-repo-removed">
         <source>The repository %0 was removed</source>
-        <translation>Förråd %0 har tagits bort</translation>
+        <translation> 软件源%0已移除</translation>
     </message>
     <message id="orn-repo-added">
         <source>The repository %0 was added</source>
-        <translation>Förråd %0 har lagts till</translation>
+        <translation>软件源%0已添加</translation>
     </message>
     <message id="orn-repo-disabled">
         <source>The repository %0 was disabled</source>
-        <translation>Förråd %0 har avaktiverats</translation>
+        <translation>软件源%0已禁用</translation>
     </message>
     <message id="orn-repo-enabled">
         <source>The repository %0 was enabled</source>
-        <translation>Förråd %0 har aktiverats</translation>
+        <translation>软件源%0已启用</translation>
     </message>
     <message id="orn-not-installed">
         <source>Not installed</source>
-        <translation>Inte installerad</translation>
+        <translation>尚未安装</translation>
     </message>
     <message id="orn-installing">
         <source>Installing</source>
-        <translation>Installerar</translation>
+        <translation>安装中</translation>
     </message>
     <message id="orn-unknown">
         <source>Unknown</source>
-        <translation>Okänd</translation>
+        <translation>未知</translation>
     </message>
     <message id="orn-updating">
         <source>Updating</source>
-        <translation>Uppdaterar</translation>
+        <translation>更新中</translation>
     </message>
     <message id="orn-version-available-global">
         <source>Available in other repositories</source>
-        <translation>Tillgänglig i andra förråd</translation>
+        <translation>在其它软件源中可用</translation>
     </message>
     <message id="orn-installed-apps-description">
         <source>Only from enabled repositories</source>
-        <translation>Endast från aktiverade förråd</translation>
+        <translation>仅来自启用的软件源</translation>
     </message>
     <message id="orn-update-all">
         <source>Update all</source>
-        <translation>Uppdatera alla</translation>
+        <translation>全部更新</translation>
     </message>
     <message id="orn-no-installed-apps">
         <source>Could not find any applications installed from OpenRepos</source>
-        <translation>Kunde inte hitta någon installerad applikation från OpenRepos</translation>
+        <translation>不能找到任何来自OpenRepos的已安装应用</translation>
     </message>
     <message id="orn-pmstate-multiple" numerus="yes">
         <source>%n operations are in progress</source>
         <extracomment>There are always more than 1 operations</extracomment>
         <translation>
-            <numerusform>%n åtgärd pågår</numerusform>
-            <numerusform>%n åtgärder pågår</numerusform>
+            <numerusform>%n的操作在执行中</numerusform>
         </translation>
     </message>
     <message id="orn-version-available">
         <source>Available version</source>
-        <translation>Tillgänglig version</translation>
+        <translation>可用版本</translation>
     </message>
     <message id="orn-size-kb">
         <source>%0 KB</source>
@@ -785,74 +782,71 @@
     </message>
     <message id="orn-error-packagenotfound">
         <source>Couldn&apos;t find package</source>
-        <translation>Kunde inte hitta paket</translation>
+        <translation>不能找到应用包</translation>
     </message>
     <message id="orn-size-installed">
         <source>Installed size</source>
-        <translation>Installerad storlek</translation>
+        <translation>安装后大小</translation>
     </message>
     <message id="orn-size-bytes" numerus="yes">
         <source>%n byte(s)</source>
         <translation>
-            <numerusform>%n byte</numerusform>
-            <numerusform>%n byte</numerusform>
+            <numerusform>%n bytes</numerusform>
         </translation>
     </message>
     <message id="orn-size-download-install">
         <source>Download / install size</source>
-        <translation>Nerladdning / Installerad storlek</translation>
+        <translation>下载/安装大小</translation>
     </message>
     <message id="orn-cat-public-transport">
         <source>Public Transport</source>
-        <translation>Allmänna kommunikationer</translation>
+        <translation>公共交通</translation>
     </message>
     <message id="orn-comments-wait">
         <source>Wait for users&apos; feedback</source>
         <extracomment>This will be shown to an application author</extracomment>
-        <translation>Vänta på användares återkoppling</translation>
+        <translation>等待用户反馈</translation>
     </message>
     <message id="orn-comments-bethefirst">
         <source>Be the first to comment</source>
         <extracomment>This will be shown to a normal user</extracomment>
-        <translation>Bli först med en kommentar</translation>
+        <translation>成为第一个评论的人</translation>
     </message>
     <message id="orn-comments-nocomments">
         <source>There is nothing here yet</source>
-        <translation>Det finns inget här än</translation>
+        <translation>这里至今什么都没有</translation>
     </message>
     <message id="orn-settings">
         <source>Settings</source>
-        <translation>Inställningar</translation>
+        <translation>设置</translation>
     </message>
     <message id="orn-updates">
         <source>Updates</source>
-        <translation>Uppdateringar</translation>
+        <translation>更新</translation>
     </message>
     <message id="orn-updates-notification-switch">
         <source>Show updates notification</source>
-        <translation>Visa updateringsavisering</translation>
+        <translation>显示更新通知</translation>
     </message>
     <message id="orn-updates-check-interval">
         <source>Updates check interval</source>
-        <translation>Intervall för uppdateringskontroller</translation>
+        <translation>检查更新间隔</translation>
     </message>
     <message id="orn-interval-m" numerus="yes">
         <source>%n minute(s)</source>
         <translation>
-            <numerusform>%n minut</numerusform>
-            <numerusform>%n minuter</numerusform>
+            <numerusform>%n 分钟</numerusform>
         </translation>
     </message>
     <message id="orn-interval-h" numerus="yes">
         <source>%n hour(s)</source>
         <translation>
-            <numerusform>%n timma</numerusform>
-            <numerusform>%n timmar</numerusform>
+            <numerusform>%n 小时</numerusform>
         </translation>
     </message>
     <message id="orn-updates-check-interval-invalid">
         <source>The interval must be at least 10 minutes</source>
-        <translation>Intervallet måste vara minst 10 minuter</translation>
+        <translation>间隔必须大于10分钟</translation>
     </message>
     <message id="orn-tag-strikeout">
         <source>S</source>
@@ -861,134 +855,122 @@
     </message>
     <message id="orn-hint-commentfield">
         <source>Swipe to see all the tag buttons</source>
-        <translation>Svep för att se alla taggknappar</translation>
+        <translation>轻扫查看全部标签按钮</translation>
     </message>
     <message id="orn-dcm-user2">
         <source>Deep Thought</source>
         <extracomment>https://simple.wikipedia.org/wiki/42_(answer)</extracomment>
-        <translation>Djup tanke</translation>
+        <translation>深思</translation>
     </message>
     <message id="orn-dcm-user1">
         <source>A little white mouse</source>
         <extracomment>https://simple.wikipedia.org/wiki/42_(answer)</extracomment>
-        <translation>En liten vit mus</translation>
+        <translation>一只小白鼠</translation>
     </message>
     <message id="orn-dcm-question">
         <source>What is the Answer to the Ultimate Question of Life, the Universe, and Everything?</source>
         <extracomment>https://simple.wikipedia.org/wiki/42_(answer)</extracomment>
-        <translation>Vad är svaret på den ultimata frågan om livet, universum och allt?</translation>
+        <translation>关于生命、宇宙、万物的终极问题的答案是什么？</translation>
     </message>
     <message id="orn-hint-commentdelegate-created">
         <source>7.5 million years ago</source>
-        <translation>7,5 miljoner år sedan</translation>
+        <translation>750万年以前</translation>
     </message>
     <message id="orn-hint-commentdelegate">
         <source>Tap to navigate to the replied comment</source>
-        <translation>Tryck för att navigera till svarskommentaren</translation>
+        <translation>点击以查看回复的评论</translation>
     </message>
     <message id="orn-tags">
         <source>Tags</source>
-        <translation>Taggar</translation>
+        <translation>标签</translation>
     </message>
     <message id="orn-tag-apps">
         <source>Tagged Applications</source>
-        <translation>Taggade appar</translation>
+        <translation>标记的应用</translation>
     </message>
     <message id="orn-rate-app">
         <source>Rate the application</source>
-        <translation>Betygsätt den här appen</translation>
+        <translation>给应用评级</translation>
     </message>
     <message id="orn-vote-send">
         <source>Your vote has been sent</source>
-        <translation>Din röst har skickats</translation>
+        <translation>你的提议已发送</translation>
     </message>
     <message id="orn-login2rate">
         <source>Log in to rate the application</source>
-        <translation>Logga in för att betygsätta appen</translation>
+        <translation>登录以评级软件</translation>
     </message>
     <message id="orn-hint-rating">
         <source>Tap to rate the application</source>
-        <translation>Tryck för att betygsätta appen</translation>
+        <translation>点击以评级应用</translation>
     </message>
     <message id="orn-local-rpms">
         <source>Local RPM files</source>
-        <translation>Lokala RPM-filer</translation>
+        <translation>本地RPM文件</translation>
     </message>
     <message id="orn-delete">
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>删除</translation>
     </message>
     <message id="orn-deleting">
         <source>Deleting</source>
-        <translation>Tar bort</translation>
+        <translation>删除中</translation>
     </message>
     <message id="orn-no-local-rpms">
         <source>No local RPM files were found</source>
-        <translation>Inga lokala RPM-filer hittades</translation>
+        <translation>没有发现本地RPM文件</translation>
     </message>
     <message id="orn-deletion-error">
         <source>Failed to delete</source>
-        <translation>Kunde inte ta bort</translation>
+        <translation>删除失败</translation>
     </message>
     <message id="orn-remove-all">
         <source>Remove all</source>
-        <translation>Ta bort alla</translation>
+        <translation>全部移除</translation>
     </message>
     <message id="orn-removing-all">
         <source>Removing all</source>
-        <translation>Tar bort alla</translation>
+        <translation>全部移除中</translation>
     </message>
     <message id="orn-repo-allremoved">
         <source>All repositories were removed</source>
-        <translation>Alla förråd togs bort</translation>
+        <translation>所有软件源均被移除</translation>
     </message>
     <message id="orn-search-on-openrepos">
         <source>Search on OpenRepos.net</source>
-        <translation>Sök på OpenRepos.net</translation>
+        <translation>在OpenRepos.net搜索</translation>
     </message>
     <message id="orn-repo-suggestion">
         <source>&lt;h3&gt;Enable the Storeman repository&lt;/h3&gt;&lt;p&gt;To receive the latest versions of Storeman, you need to enable its OpenRepos repository like for any other app.&lt;/p&gt;&lt;p&gt;Do you want to do it now?&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Aktivera Storeman-förrådet&lt;/h3&gt; &lt;p&gt;för att alltid få senaste version av Storeman. Liksom för andra appar, behöver du aktivera detta OpenRepos-förråd.&lt;/p&gt; &lt;p&gt;Vill du göra det nu?&lt;/p&gt;</translation>
+        <translation>&lt;h3&gt;启用Storeman仓库&lt;/h3&gt;&lt;p&gt;为使storeman软件源生效以获取最新的storeman版本，你必须像其它软件那样让它的OpenRepos软件源生效&lt;/p&gt;。&lt;p&gt;你想立刻采取行动吗？&lt;/p&gt;</translation>
     </message>
     <message id="orn-save">
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>储存</translation>
     </message>
     <message id="orn-check-for-updates-switch">
         <source>Check for updates</source>
-        <translation>Sök efter uppdateringar</translation>
+        <translation>检查更新</translation>
     </message>
     <message id="orn-check-for-updates-descr">
         <source>Updates are checked only when the Storeman is running</source>
-        <translation>Uppdateringar kontrolleras endast när Storeman körs</translation>
+        <translation>仅当storeman运行的时候检查更新</translation>
     </message>
     <message id="orn-smart-check-switch">
         <source>Smart check</source>
-        <translation>Smart kontroll</translation>
+        <translation>智能检查</translation>
     </message>
     <message id="orn-smart-check-descr">
         <source>Use the OpenRepos.net API to determine if there are new updates</source>
-        <translation>Använd OpenRepos.net API, för att avgöra om det finns nya uppdateringar</translation>
+        <translation>使用OpenRepos.net API以确定是否有更新</translation>
     </message>
     <message id="orn-reload">
         <source>Reload</source>
-        <translation>Uppdatera</translation>
+        <translation>重新加载</translation>
     </message>
-    <message id="orn-no-packages">
-        <source>No packages available</source>
-        <translation>Inga paket tillgängliga</translation>
-    </message>
-    <message id="orn-error-comment-sending">
+    <message id="orn-message-error">
         <source>Error sending comment</source>
-        <translation>Kunde inte skicka kommentar</translation>
-    </message>
-    <message id="orn-error-comment-deletion">
-        <source>Error deleting comment</source>
-        <translation>Kunde inte ta bort kommentar</translation>
-    </message>
-    <message id="orn-error-network">
-        <source>Network error</source>
-        <translation>Nätverksfel</translation>
+        <translation>发送评论出错</translation>
     </message>
 </context>
 </TS>

@@ -12,7 +12,7 @@ quint32 OrnUserAppsModel::userId() const
     return mUserId;
 }
 
-void OrnUserAppsModel::setUserId(const quint32 &userId)
+void OrnUserAppsModel::setUserId(quint32 userId)
 {
     if (mUserId != userId)
     {
@@ -28,5 +28,5 @@ void OrnUserAppsModel::fetchMore(const QModelIndex &parent)
     {
         return;
     }
-    OrnAbstractListModel::apiCall(QStringLiteral("users/%0/apps").arg(mUserId));
+    OrnAbstractListModel::fetch(QStringLiteral("users/%0/apps").arg(mUserId));
 }

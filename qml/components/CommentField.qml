@@ -6,6 +6,7 @@ Column {
     property alias isActive: body.activeFocus
     property string _editId
     property string _replyToId
+    property bool busy: false
     readonly property bool _hasText: body.text.trim()
 
     function reply(cid, name, text) {
@@ -33,6 +34,7 @@ Column {
     }
 
     function _reset() {
+        busy = false
         body.focus = false
         _editId = ""
         _replyToId = ""
@@ -43,6 +45,22 @@ Column {
     id: commentField
     width: parent.width
     spacing: Theme.paddingSmall
+    enabled: !busy
+
+    Connections {
+        target: OrnClient
+        onCommentActionFinished: _reset()
+        onError: {
+            switch (code) {
+            case OrnClient.CommentSendError:
+            case OrnClient.CommentDeleteError:
+                busy = false
+                break
+            default:
+                break
+            }
+        }
+    }
 
     Item {
         id: typeItem
@@ -245,21 +263,21 @@ Column {
                 return qsTrId("orn-comment-send")
             }
 
-            opacity: body.text || body.activeFocus ? 1.0 : 0.0
+            opacity: body.text || isActive ? 1.0 : 0.0
             Behavior on opacity { FadeAnimation { } }
 
             MouseArea {
                 id: sendButtonMouseArea
                 anchors.fill: parent
                 onClicked: {
+                    busy = true
                     if (_editId) {
-                        OrnClient.editComment(_editId, body.text)
+                        OrnClient.editComment(commentsModel.appId, _editId, body.text)
                     } else if (_replyToId) {
                         OrnClient.comment(commentsModel.appId, body.text, _replyToId)
                     } else {
                         OrnClient.comment(commentsModel.appId, body.text)
                     }
-                    _reset()
                 }
             }
         }

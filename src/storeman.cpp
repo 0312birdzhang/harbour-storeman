@@ -22,11 +22,11 @@
 #include <QtConcurrentRun>
 #include <QNetworkReply>
 
-#include "orn.h"
+#include "ornutils.h"
 #include "ornpm.h"
 #include "ornapplication.h"
 #include "ornrepo.h"
-#include "ornapirequest.h"
+#include "ornclient.h"
 
 #define STOREMAN_AUTHOR QStringLiteral("birdzhang")
 
@@ -76,7 +76,7 @@ int Storeman::updateInterval() const
     return mSettings->value(QStringLiteral("updates/interval"), 600000).toInt();
 }
 
-void Storeman::setUpdateInterval(const int &value)
+void Storeman::setUpdateInterval(int value)
 {
     Q_ASSERT(value > 0);
     if (this->updateInterval() != value)
@@ -136,7 +136,7 @@ bool Storeman::removeFile(const QString &filePath)
     return QFile(filePath).remove();
 }
 
-bool Storeman::showHint(const Storeman::Hint &hint) const
+bool Storeman::showHint(Storeman::Hint hint) const
 {
     auto me = QMetaEnum::fromType<Hint>();
     auto name = me.valueToKey(hint);
@@ -144,7 +144,7 @@ bool Storeman::showHint(const Storeman::Hint &hint) const
     return !mSettings->value(QStringLiteral("hints/").append(name), false).toBool();
 }
 
-void Storeman::setHintShowed(const Storeman::Hint &hint)
+void Storeman::setHintShowed(Storeman::Hint hint)
 {
     auto me = QMetaEnum::fromType<Hint>();
     auto name = me.valueToKey(hint);
@@ -152,7 +152,7 @@ void Storeman::setHintShowed(const Storeman::Hint &hint)
     mSettings->setValue(QStringLiteral("hints/").append(name), true);
 }
 
-OrnApplication *Storeman::cachedApp(const quint32 &appId)
+OrnApplication *Storeman::cachedApp(quint32 appId)
 {
     if (appId == 0)
     {
@@ -182,9 +182,9 @@ void Storeman::refreshRepos()
 {
     if (this->smartUpdate())
     {
-        auto url = OrnApiRequest::apiUrl(QStringLiteral("apps"));
-        url.setQuery(QStringLiteral("pagesize=1"));
-        auto reply = Orn::networkAccessManager()->get(OrnApiRequest::networkRequest(url));
+        auto client = OrnClient::instance();
+        auto request = client->apiRequest(QStringLiteral("apps"), QUrlQuery(QStringLiteral("pagesize=1")));
+        auto reply = client->networkAccessManager()->get(request);
         connect(reply, &QNetworkReply::finished, [this, reply]()
         {
             if (reply->error() == QNetworkReply::NoError)
@@ -192,7 +192,7 @@ void Storeman::refreshRepos()
                 auto json = QJsonDocument::fromJson(reply->readAll()).array();
                 if (!json.isEmpty())
                 {
-                    auto lastUpdate = Orn::toUint(json[0].toObject()[QStringLiteral("updated")]);
+                    auto lastUpdate = OrnUtils::toUint(json[0].toObject()[QStringLiteral("updated")]);
                     auto lastCheck = mSettings->value(QStringLiteral("updates/last_check")).toLongLong();
                     if (qlonglong(lastUpdate) * 1000 > lastCheck)
                     {

@@ -1,14 +1,12 @@
 #include "orntagsmodel.h"
-#include "orntaglistitem.h"
-#include "ornapirequest.h"
-#include "orn.h"
+#include "ornclient.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 
-OrnTagsModel::OrnTagsModel(QObject *parent) :
-    OrnAbstractAppsModel(false, parent)
+OrnTagsModel::OrnTagsModel(QObject *parent)
+    : OrnAbstractListModel(false, parent)
 {}
 
 QStringList OrnTagsModel::tagIds() const
@@ -26,42 +24,6 @@ void OrnTagsModel::setTagIds(const QStringList &ids)
     }
 }
 
-void OrnTagsModel::addTag(QString id)
-{
-    qDebug() << "Adding tag" << id << "to tags model";
-    auto url = OrnApiRequest::apiUrl(id.prepend("tags/"));
-    auto request = OrnApiRequest::networkRequest(url);
-    auto reply = Orn::networkAccessManager()->get(request);
-    connect(reply, &QNetworkReply::finished, this, &OrnTagsModel::onReplyFinished);
-}
-
-void OrnTagsModel::onReplyFinished()
-{
-    auto reply = static_cast<QNetworkReply *>(this->sender());
-
-    if (reply->error() == QNetworkReply::NoError)
-    {
-        QJsonParseError error;
-        auto jsonDoc = QJsonDocument::fromJson(reply->readAll(), &error);
-        if (error.error == QJsonParseError::NoError)
-        {
-            QJsonArray arr;
-            arr.append(jsonDoc.object());
-            OrnAbstractListModel::processReply<OrnTagListItem>(QJsonDocument(arr));
-        }
-        else
-        {
-            qCritical() << "Could not parse reply:" << error.errorString();
-        }
-    }
-    else
-    {
-        qDebug() << "Network request error" << reply->error()
-                 << "-" << reply->errorString();
-    }
-    reply->deleteLater();
-}
-
 QVariant OrnTagsModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
@@ -69,15 +31,15 @@ QVariant OrnTagsModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    auto tag = static_cast<OrnTagListItem *>(mData[index.row()]);
+    const auto &tag = mData[index.row()];
     switch (role)
     {
     case TagIdRole:
-        return tag->tagId;
+        return tag.tagId;
     case AppsCountRole:
-        return tag->appsCount;
+        return tag.appsCount;
     case NameRole:
-        return tag->name;
+        return tag.name;
     default:
         return QVariant();
     }
@@ -99,8 +61,32 @@ void OrnTagsModel::fetchMore(const QModelIndex &parent)
         return;
     }
 
+    mFetching = true;
+    emit this->fetchingChanged();
+
+    auto client = OrnClient::instance();
+    auto size = mTagIds.size();
+    QString resourcePrefix(QStringLiteral("tags/"));
+
     for (const auto &id : mTagIds)
     {
-        this->addTag(id);
+        auto request = client->apiRequest(resourcePrefix + id);
+        qDebug() << "Fetching data from" << request.url().toString();
+        auto reply = client->networkAccessManager()->get(request);
+        connect(reply, &QNetworkReply::finished, [this, client, size, reply]()
+        {
+            auto doc = client->processReply(reply);
+            if (doc.isObject())
+            {
+                mFetchedTags.append(doc.object());
+                if (mFetchedTags.size() == size)
+                {
+                    this->processReply(QJsonDocument(mFetchedTags));
+                    mFetchedTags = QJsonArray();                    
+                    mFetching = false;
+                    emit this->fetchingChanged();
+                }
+            }
+        });
     }
 }

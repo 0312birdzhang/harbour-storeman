@@ -972,7 +972,11 @@
     </message>
     <message id="orn-reload">
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Herladen</translation>
+    </message>
+    <message id="orn-message-error">
+        <source>Error sending comment</source>
+        <translation>Fout bij verzenden van reactie</translation>
     </message>
 </context>
 </TS>

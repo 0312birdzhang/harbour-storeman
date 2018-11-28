@@ -23,13 +23,13 @@ ListItem {
         var hours = Math.round(mins / 60.0)
         if (hours < 1) {
             //% "%n minute(s) ago"
-            createdLabel.text = qsTrId("orn-mins-ago", mins).arg(mins)
+            createdLabel.text = qsTrId("orn-mins-ago", mins)
             return
         }
         var days = Math.round(hours / 24.0)
         if (days < 1) {
             //% "%n hour(s) ago"
-            createdLabel.text = qsTrId("orn-hours-ago", hours).arg(hours)
+            createdLabel.text = qsTrId("orn-hours-ago", hours)
         } else if (days == 1) {
             //% "Yesterday"
             createdLabel.text = qsTrId("orn-yesterday")
@@ -65,16 +65,14 @@ ListItem {
             onClicked: commentField.item.edit(model.commentId, model.text)
         }
 
-//        MenuItem {
-//            //% "Delete"
-//            text: qsTrId("orn-delete")
-//            visible: _userComment || OrnClient.userId === userId
-//            //% "Deleting"
-//            onClicked: remorseAction(qsTrId("orn-deleting"), function() {
-//                OrnClient.deleteComment(comment.commentId)
-//                commentsModel.removeRow(index, 1)
-//            })
-//        }
+        MenuItem {
+            text: qsTrId("orn-delete")
+            visible: _userComment || OrnClient.userId === userId
+            //% "Deleting"
+            onClicked: remorseAction(qsTrId("orn-deleting"), function() {
+                OrnClient.deleteComment(page.appId, model.commentId)
+            })
+        }
     }
 
     Column {
@@ -111,14 +109,33 @@ ListItem {
                     leftMargin: Theme.paddingMedium
                 }
 
-                Label {
+                Item {
                     width: parent.width
-                    color: highlighted ? Theme.highlightColor :
-                                         _userComment ? Theme.primaryColor : Theme.secondaryColor
-                    wrapMode: Text.WordWrap
-                    text: (_userComment ? "<img src='image://theme/icon-s-edit'> " :
-                                          _authorComment ? "<img src='image://theme/icon-s-developer'> " : "") +
-                          model.userName
+                    height: Math.max(userLabelIcon.height, userLabel.height)
+
+                    Image {
+                        id: userLabelIcon
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: _userComment || _authorComment
+                        source: _userComment   ? "image://theme/icon-s-edit?" + userLabel.color :
+                                _authorComment ? "image://theme/icon-s-developer?" + userLabel.color :
+                                                 ""
+                    }
+
+                    Label {
+                        id: userLabel
+                        anchors {
+                            left: userLabelIcon.right
+                            leftMargin: userLabelIcon.visible ? Theme.paddingSmall : 0
+                            right: parent.right
+                            verticalCenter: parent.verticalCenter
+                        }
+                        color: highlighted  ? Theme.highlightColor :
+                               _userComment ? Theme.primaryColor :
+                                              Theme.secondaryColor
+                        wrapMode: Text.WordWrap
+                        text: model.userName
+                    }
                 }
 
                 Label {
@@ -157,12 +174,22 @@ ListItem {
             font.pixelSize: Theme.fontSizeSmall
             wrapMode: Text.WordWrap
             textFormat: Text.RichText
-            text: model.text
-                .replace(/<a([^>]*)>([^<]+)<\/a>/g,
-                         '<a$1><font color="%0">$2</font></a>'.arg(Theme.primaryColor))
-                .replace(/<pre>([^<]+)<\/pre>/g,
-                        '<p style="color:%0;font-family:monospace;font-size:%1px;">$1</p>'
-                            .arg(Theme.secondaryColor).arg(Theme.fontSizeTiny))
+            text: "
+<style>
+  a:link {
+    color: " + Theme.primaryColor + ";
+  }
+  pre {
+    color: " + Theme.secondaryColor + ";
+    font-family: monospace;
+    font-size: " + Theme.fontSizeTiny + "px;
+    white-space: pre-wrap;
+  }
+  blockquote {
+    color: " + Theme.secondaryHighlightColor + ";
+    font-style: italic;
+  }
+</style>" + model.text
             onLinkActivated: {
                 var match = link.match(/https:\/\/openrepos\.net\/.*#comment-(\d*)/)
                 if (match) {

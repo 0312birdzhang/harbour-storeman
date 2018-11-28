@@ -12,26 +12,38 @@ Page {
         viewPlaceholder.text = qsTrId("orn-searchpage-placeholder-default")
         //% "Type some keywords in the field above"
         viewPlaceholder.hintText = qsTrId("orn-searchpage-placeholder-default-hint")
+        view.headerItem.searchField.forceActiveFocus()
     }
 
     function _search(text) {
         searchModel.searchKey = text
         viewPlaceholder.text = ""
         viewPlaceholder.hintText = ""
+        forceActiveFocus()
     }
 
     id: page
     allowedOrientations: defaultAllowedOrientations
 
-    Component.onCompleted: if (!initialSearch) _reset()
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            if (initialSearch) {
+                view.headerItem.searchField.text = initialSearch
+                _search(initialSearch)
+            } else if (!view.headerItem.searchField.text) {
+                _reset()
+            }
+        }
+    }
 
     SilicaListView
     {
+        id: view
         anchors.fill: parent
         model: OrnSearchAppsModel {
             id: searchModel
-            onResultsUpdated: {
-                if (rowCount() === 0) {
+            onFetchingChanged: {
+                if (!fetching && rowCount() === 0) {
                     //% "Nothing found"
                     viewPlaceholder.text = qsTrId("orn-searchpage-placeholder-noresults")
                     //% "Try to change search keywords"
@@ -41,6 +53,8 @@ Page {
         }
 
         header: Column {
+            property alias searchField: searchField
+
             width: parent.width
 
             PageHeader {
@@ -50,6 +64,7 @@ Page {
             }
 
             SearchField {
+                id: searchField
                 width: parent.width
                 //: The search field placeholder text - should be a verb
                 //% "Search"
@@ -60,14 +75,6 @@ Page {
                 EnterKey.onClicked: _search(text)
 
                 onTextChanged: if (!text) _reset()
-                Component.onCompleted: {
-                    if (initialSearch) {
-                        text = initialSearch
-                        _search(initialSearch)
-                    } else {
-                        forceActiveFocus()
-                    }
-                }
             }
         }
 

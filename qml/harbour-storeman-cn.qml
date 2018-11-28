@@ -47,7 +47,7 @@ ApplicationWindow
             // Prepare a http request to get headers
             req.open("HEAD", link, true)
             req.onreadystatechange = function() {
-                if (req.readyState == 4) {
+                if (req.readyState === XMLHttpRequest.DONE) {
                     if (req.status == 200) {
                         // Check if headers contain an id link
                         match = /<\/node\/(\d*)>.*/.exec(req.getResponseHeader("link"))
@@ -93,9 +93,26 @@ ApplicationWindow
         service: "harbour.storeman.cn.service"
         iface: "harbour.storeman.cn.service"
         path: "/harbour/storeman/cn/service"
-        xml: "  <interface name=\"harbour.storeman.cn.service\">\n" +
-             "    <method name=\"openPage\"/>\n" +
-             "  </interface>\n"
+        xml: '\
+  <interface name="harbour.storeman.cn.service">
+    <method name="openPage">
+      <arg name="page" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>
+            Name of the page to open
+            (https://github.com/mentaljam/harbour-storeman/tree/master/qml/pages)
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="arguments" type="a{sv}" direction="in">
+        <doc:doc>
+          <doc:summary>
+            Arguments to pass to the page
+          </doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+  </interface>'
 
         function openPage(page, arguments) {
             if (page === "InstalledAppsPage") {
@@ -183,18 +200,40 @@ ApplicationWindow
     Connections {
         target: OrnClient
 
+        onError: {
+            switch (code) {
+            case OrnClient.NetworkError:
+                if (networkManager.online) {
+                    //% "Network error"
+                    notification.show(qsTrId("orn-error-network"), "image://theme/icon-lock-warning")
+                }
+                break
+            case OrnClient.AuthorisationError:
+                notification.showPopup(
+                            //% "Login error"
+                            qsTrId("orn-login-error-title"),
+                            //% "Could not log in the OpenRepos.net - check your credentials and network connection"
+                            qsTrId("orn-login-error-message"),
+                            "image://theme/icon-lock-warning")
+                break
+            case OrnClient.CommentSendError:
+                //% "Error sending comment"
+                notification.show(qsTrId("orn-error-comment-sending"), "image://theme/icon-lock-warning")
+                break
+            case OrnClient.CommentDeleteError:
+                //% "Error deleting comment"
+                notification.show(qsTrId("orn-error-comment-deletion"), "image://theme/icon-lock-warning")
+                break
+            default:
+                break
+            }
+        }
+
         onAuthorisedChanged: OrnClient.authorised ?
                                  //% "You have successfully logged in to the OpenRepos.net"
                                  notification.show(qsTrId("orn-loggedin-message")) :
                                  //% "You have logged out from the OpenRepos.net"
                                  notification.show(qsTrId("orn-loggedout-message"))
-
-        onAuthorisationError: notification.showPopup(
-                                  //% "Login error"
-                                  qsTrId("orn-login-error-title"),
-                                  //% "Could not log in the OpenRepos.net - check your credentials and network connection"
-                                  qsTrId("orn-login-error-message"),
-                                  "image://theme/icon-lock-warning")
 
         onDayToExpiry: {
             //% "Authorisation expires"

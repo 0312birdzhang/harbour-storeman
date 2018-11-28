@@ -33,10 +33,8 @@ SOURCES += \
     src/harbour-storeman.cpp \
     src/networkaccessmanagerfactory.cpp \
     src/storeman.cpp \
-    src/orn.cpp \
-    src/ornapirequest.cpp \
+    src/ornutils.cpp \
     src/ornclient.cpp \
-    src/ornabstractlistmodel.cpp \
     src/ornabstractappsmodel.cpp \
     src/ornrecentappsmodel.cpp \
     src/ornuserappsmodel.cpp \
@@ -62,11 +60,10 @@ SOURCES += \
 HEADERS += \
     src/networkaccessmanagerfactory.h \
     src/storeman.h \
-    src/orn.h \
-    src/ornapirequest.h \
+    src/ornutils.h \
     src/ornclient.h \
+    src/ornclient_p.h \
     src/ornabstractlistmodel.h \
-    src/ornabstractlistitem.h \
     src/ornabstractappsmodel.h \
     src/ornrecentappsmodel.h \
     src/ornuserappsmodel.h \

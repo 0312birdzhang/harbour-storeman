@@ -2,11 +2,12 @@
 #define ORNCOMMENTSMODEL_H
 
 #include "ornabstractlistmodel.h"
+#include "orncommentlistitem.h"
 
 class OrnCommentListItem;
 class QNetworkReply;
 
-class OrnCommentsModel : public OrnAbstractListModel
+class OrnCommentsModel : public OrnAbstractListModel<OrnCommentListItem>
 {
     Q_OBJECT
     Q_PROPERTY(quint32 appId READ appId WRITE setAppId NOTIFY appIdChanged)
@@ -28,19 +29,15 @@ public:
     explicit OrnCommentsModel(QObject *parent = nullptr);
 
     quint32 appId() const;
-    void setAppId(const quint32 &appId);
+    void setAppId(quint32 appId);
 
-    Q_INVOKABLE int findItemRow(const quint32 &cid) const;
-
-public slots:
-    void addComment(const quint32 &cid);
-    void editComment(const quint32 &cid);
+    Q_INVOKABLE int findItemRow(quint32 cid) const;
 
 signals:
     void appIdChanged();
 
 private:
-    QNetworkReply *fetchComment(const quint32 &cid);
+    QNetworkReply *fetchComment(quint32 cid);
     QJsonObject processReply(QNetworkReply *reply);
 
 private:
@@ -51,11 +48,6 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     void fetchMore(const QModelIndex &parent);
     QHash<int, QByteArray> roleNames() const;
-//    Q_INVOKABLE bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
-
-    // OrnAbstractListModel interface
-protected slots:
-    void onJsonReady(const QJsonDocument &jsonDoc);
 };
 
 #endif // ORNCOMMENTSMODEL_H

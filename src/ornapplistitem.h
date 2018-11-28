@@ -1,12 +1,11 @@
 #ifndef ORNAPPLISTITEM_H
 #define ORNAPPLISTITEM_H
 
-#include "ornabstractlistitem.h"
-#include <QDate>
+#include <QString>
 
 class QJsonObject;
 
-struct OrnAppListItem : public OrnAbstractListItem
+struct OrnAppListItem
 {
     OrnAppListItem(const QJsonObject &jsonObject);
 
@@ -23,7 +22,7 @@ struct OrnAppListItem : public OrnAbstractListItem
     QString package;
 
 private:
-    static QString sinceLabel(const quint32 &value);
+    static QString sinceLabel(quint32 value);
 };
 
 #endif // ORNAPPLISTITEM_H
