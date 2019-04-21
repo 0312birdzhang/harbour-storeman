@@ -13,6 +13,17 @@ ApplicationWindow
     readonly property var _locale: Qt.locale()
     property var _operations: OrnPm.initialised ? OrnPm.operations : null
     property var _resolvedLinks: new Object
+    readonly property real _appListDelegatePadding: {
+        if (pageStack._currentOrientation === Orientation.Portrait) {
+            return Screen.sizeCategory >= Screen.Large ?
+                        Theme.horizontalPageMargin + Theme.iconSizeLauncher :
+                        Theme.horizontalPageMargin
+        } else {
+            return Screen.sizeCategory >= Screen.Large ?
+                        Theme.horizontalPageMargin + Theme.iconSizeLauncher * 2 :
+                        Theme.horizontalPageMargin + Theme.iconSizeLauncher
+        }
+    }
 
     function itemInProgress(item) {
         if (!_operations) {
@@ -36,7 +47,7 @@ ApplicationWindow
             var path = match[1]
             var appid = _resolvedLinks[path]
             if (appid) {
-                pageStack.push(Qt.resolvedUrl("pages/ApplicationPage.qml"), {
+                pageStack.push(Qt.resolvedUrl("pages/AppPage.qml"), {
                                    appId: appid,
                                    returnToUser: false
                                })
@@ -54,7 +65,7 @@ ApplicationWindow
                         if (match) {
                             appid = match[1]
                             // Load the application page
-                            pageStack.push(Qt.resolvedUrl("pages/ApplicationPage.qml"), {
+                            pageStack.push(Qt.resolvedUrl("pages/AppPage.qml"), {
                                                appId: appid,
                                                returnToUser: false
                                            })
@@ -74,7 +85,7 @@ ApplicationWindow
         }
     }
 
-    initialPage: Component { RecentAppsPage { } }
+    initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
 
@@ -84,7 +95,7 @@ ApplicationWindow
     }
 
     NetworkManager {
-        readonly property bool online: state === "online"
+        readonly property bool online: !state || state === "online"
 
         id: networkManager
     }

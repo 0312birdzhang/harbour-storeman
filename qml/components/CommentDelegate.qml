@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.orn 1.0
+import '../'
 
 ListItem {
     readonly property bool _userComment: OrnClient.userId === model.userId
@@ -38,6 +39,7 @@ ListItem {
         }
     }
 
+    id: commentDelegate
     contentHeight: content.height + Theme.paddingMedium * 2
     menu: OrnClient.authorised ? contextMenu : null
     highlighted: OrnClient.authorised && down
@@ -73,6 +75,14 @@ ListItem {
                 OrnClient.deleteComment(page.appId, model.commentId)
             })
         }
+    }
+
+    ListView.onAdd: AddAnimation {
+        target: commentDelegate
+    }
+
+    ListView.onRemove: RemoveAnimation {
+        target: commentDelegate
     }
 
     Column {
@@ -174,22 +184,7 @@ ListItem {
             font.pixelSize: Theme.fontSizeSmall
             wrapMode: Text.WordWrap
             textFormat: Text.RichText
-            text: "
-<style>
-  a:link {
-    color: " + Theme.primaryColor + ";
-  }
-  pre {
-    color: " + Theme.secondaryColor + ";
-    font-family: monospace;
-    font-size: " + Theme.fontSizeTiny + "px;
-    white-space: pre-wrap;
-  }
-  blockquote {
-    color: " + Theme.secondaryHighlightColor + ";
-    font-style: italic;
-  }
-</style>" + model.text
+            text: StoremanStyles.commentStyle + model.text
             onLinkActivated: {
                 var match = link.match(/https:\/\/openrepos\.net\/.*#comment-(\d*)/)
                 if (match) {

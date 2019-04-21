@@ -119,7 +119,7 @@
     <message id="orn-dt-format">
         <source>yyyy-MM-dd hh:mm</source>
         <extracomment>Output format for the date labels. For details visit http://doc.qt.io/qt-5/qdate.html#toString</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message id="orn-version-noavailable">
         <source>No versions available</source>
@@ -411,10 +411,6 @@
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
-    <message id="orn-thisdevice">
-        <source>This Device</source>
-        <translation>Στη συσκευή</translation>
-    </message>
     <message id="orn-login-menu-item">
         <source>Log in to OpenRepos.net</source>
         <translation>Σύνδεση στο OpenRepos.net</translation>
@@ -512,7 +508,7 @@
         <translation>Απενεργοποίηση όλων</translation>
     </message>
     <message id="orn-installed-apps">
-        <source>Installed Applications</source>
+        <source>Installed applications</source>
         <translation>Εγκατεστημένες εφαρμογές</translation>
     </message>
     <message id="orn-bookmarks-added">
@@ -663,17 +659,13 @@
         <source>Login to comment</source>
         <translation>Συνδεθείτε για να ανάρτηση σχολίου</translation>
     </message>
-    <message id="orn-backup-title">
-        <source>Backup to a file</source>
-        <translation>Αντίγραφο ασφαλείας σε αρχείο</translation>
-    </message>
     <message id="orn-backup">
         <source>Backup</source>
         <translation>Αντίγραφα ασφαλείας</translation>
     </message>
     <message id="orn-backup-hint">
-        <source>Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.</source>
-        <translation>Τα αντίγραφα ασφαλείας σας επιτρέπουν την αποθήκευση των αποθετηρίων του OpenRepos, τις εγκατεστημένες εφαρμογές και σελιδοδείκτες και να τις επαναφέρετε αργότερα (πχ μετά από μια επαναφορά των ρυθμίσεων εργοστασίου). Ένα εφεδρικό αντίγραφο είναι ένα τοπικό αρχείο αποθηκευμένο στον κατάλογο&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Προσοχή!&lt;/b&gt; Θα πρέπει να αποθηκεύσετε τα αντίγραφα ασφαλείας σε ένα ασφαλές μέρος χειροκίνητα πριν την επαναφορά στις εργοστασιακές ρυθμίσεις. Για παράδειγμα στην κάρτα SD, σε μια εξωτερική συσκευή, μια υπηρεσία αποθήκευσης νέφους ή κάπου αλλού.</translation>
+        <source>&lt;h2&gt;Backup to a file&lt;/h2&gt;&lt;br /&gt;&lt;p&gt;Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;/p&gt;&lt;br /&gt;&lt;p&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.&lt;/p&gt;</source>
+        <translation>&lt;h2&gt;Εφεδρικό αντίγραφο σε αρχείο&lt;/h2&gt;&lt;br /&gt;&lt;p&gt;Τα αντίγραφα ασφαλείας σας επιτρέπουν την αποθήκευση των αποθετηρίων του OpenRepos, τις εγκατεστημένες εφαρμογές και σελιδοδείκτες και να τις επαναφέρετε αργότερα (πχ μετά από μια επαναφορά των ρυθμίσεων εργοστασίου). Ένα εφεδρικό αντίγραφο είναι ένα τοπικό αρχείο αποθηκευμένο στον κατάλογο&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt;.&lt;/p&gt;&lt;br /&gt;&lt;p&gt;&lt;b&gt;Προσοχή!&lt;/b&gt; Θα πρέπει να αποθηκεύσετε τα αντίγραφα ασφαλείας σε ένα ασφαλές μέρος χειροκίνητα πριν την επαναφορά στις εργοστασιακές ρυθμίσεις. Για παράδειγμα στην κάρτα SD, σε μια εξωτερική συσκευή, μια υπηρεσία αποθήκευσης νέφους ή κάπου αλλού.&lt;/p&gt;</translation>
     </message>
     <message id="orn-pmstate-initialising">
         <source>Initialising</source>
@@ -950,29 +942,97 @@
         <source>&lt;h3&gt;Enable the Storeman repository&lt;/h3&gt;&lt;p&gt;To receive the latest versions of Storeman, you need to enable its OpenRepos repository like for any other app.&lt;/p&gt;&lt;p&gt;Do you want to do it now?&lt;/p&gt;</source>
         <translation>&lt;h3&gt;Ενεργοποίηση του αποθετηρίου Storeman&lt;/h3&gt;&lt;p&gt;Για να λαμβάνετε τις νεότερες εκδόσεις του Storeman, απαιτείται η ενεργοποίηση του αποθετηρίου στο OpenRepos όπως κάθε άλλη εφαρμογή.&lt;/p&gt;&lt;p&gt;Επιθυμείτε να το κάνετε τώρα;&lt;/p&gt;</translation>
     </message>
-    <message id="orn-save">
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message id="orn-check-for-updates-switch">
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Έλεγχος για ενημερώσεις</translation>
     </message>
     <message id="orn-check-for-updates-descr">
         <source>Updates are checked only when the Storeman is running</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι ενημερώσεις ελέγχονται μόνον κατά την εκτέλεση του Storeman</translation>
     </message>
     <message id="orn-smart-check-switch">
         <source>Smart check</source>
-        <translation type="unfinished"></translation>
+        <translation>Έξυπνη επιλογή</translation>
     </message>
     <message id="orn-smart-check-descr">
         <source>Use the OpenRepos.net API to determine if there are new updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση του API OpenRepos.net για να προσδιοριστεί αν υπάρχουν ενημερώσεις</translation>
     </message>
     <message id="orn-reload">
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαναφόρτωση</translation>
+    </message>
+    <message id="orn-no-packages">
+        <source>No packages available</source>
+        <translation>Δεν υπάρχουν διαθέσιμα πακέτα</translation>
+    </message>
+    <message id="orn-error-comment-sending">
+        <source>Error sending comment</source>
+        <translation>Σφάλμα κατά την αποστολή του σχολίου</translation>
+    </message>
+    <message id="orn-error-comment-deletion">
+        <source>Error deleting comment</source>
+        <translation>Σφάλμα κατά την διαγραφή του σχολίου</translation>
+    </message>
+    <message id="orn-error-network">
+        <source>Network error</source>
+        <translation>Σφάλμα δικτύου</translation>
+    </message>
+    <message id="orn-hint-bookmark">
+        <source>Tap to bookmark the application</source>
+        <translation>Κτυπήστε για να αξιολογήσετε την εφαρμογή</translation>
+    </message>
+    <message id="orn-bad-appid">
+        <source>Invalid package ID %1</source>
+        <translation>Μη έγκυρο αναγνωριστικό πακέτου %1</translation>
+    </message>
+    <message id="orn-backup-filenameph">
+        <source>A file name for backup</source>
+        <translation>Το όνομα του εφεδρικού αρχείου</translation>
+    </message>
+    <message id="orn-file-exists">
+        <source>File already exists</source>
+        <translation>Το αρχείο υπάρχει ήδη</translation>
+    </message>
+    <message id="orn-backup-items">
+        <source>What to backup</source>
+        <translation>Προσθήκη στο αντίγραφο ασφαλείας</translation>
+    </message>
+    <message id="orn-backup-apps">
+        <source>Installed applications</source>
+        <translation>Εγκατεστημένες εφαρμογές</translation>
+    </message>
+    <message id="orn-myapps">
+        <source>My applications</source>
+        <translation>Οι εφαρμογές μου</translation>
+    </message>
+    <message id="orn-hint-close">
+        <source>Tap again to close the hint</source>
+        <translation>Κτυπήστε ξανά για κλείσιμο της υπόδειξης</translation>
+    </message>
+    <message id="orn-mainpage">
+        <source>Main page</source>
+        <translation>Κύρια σελίδα</translation>
+    </message>
+    <message id="orn-show-recent-switch">
+        <source>Show recently updated on start</source>
+        <translation>Εμφάνιση των προσφάτως ενημερωμένων κατά την έναρξη</translation>
+    </message>
+    <message id="orn-show-recent-switch-descr">
+        <source>Switch to the page of recently updated packages on start</source>
+        <translation>Εναλλαγή στην σελίδα των προσφάτως ενημερωμένων πακέτων κατά την έναρξη</translation>
+    </message>
+    <message id="orn-mainpage-order">
+        <source>Order items</source>
+        <translation>Ταξινόμηση των αντικειμένων</translation>
+    </message>
+    <message id="orn-reset">
+        <source>Reset</source>
+        <translation>Επαναφορά</translation>
+    </message>
+    <message id="orn-mainpage-order-description">
+        <source>Drag items to change their order</source>
+        <translation>Σύρετε τα αντικείμενα για ταξινόμηση</translation>
     </message>
 </context>
 </TS>

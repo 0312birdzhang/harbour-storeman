@@ -1,6 +1,6 @@
 TARGET = harbour-storeman-cn
 
-QT += concurrent dbus
+QT += concurrent dbus core-private
 CONFIG += sailfishapp
 
 PKGCONFIG += \
@@ -27,7 +27,7 @@ INCLUDEPATH += \
     /usr/include/packagekitqt5/PackageKit \
     /usr/include/PackageKit/packagekit-qt5
 
-SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
+SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 SOURCES += \
     src/harbour-storeman.cpp \
@@ -90,10 +90,12 @@ HEADERS += \
     src/orntagappsmodel.h
 
 OTHER_FILES += \
-    qml/harbour-storeman-cn.qml \
+    qml/harbour-storeman.qml \
+    qml/StoremanStyles.qml \
     qml/cover/CoverPage.qml \
+    qml/pages/MainPage.qml \
     qml/pages/RecentAppsPage.qml \
-    qml/pages/ApplicationPage.qml \
+    qml/pages/AppPage.qml \
     qml/pages/RepositoriesPage.qml \
     qml/pages/ScreenshotPage.qml \
     qml/pages/VotingPage.qml \
@@ -108,7 +110,6 @@ OTHER_FILES += \
     qml/pages/DevelopmentPage.qml \
     qml/pages/CategoriesPage.qml \
     qml/pages/CategoryPage.qml \
-    qml/pages/DevicePage.qml \
     qml/pages/AuthorisationDialog.qml \
     qml/pages/InstalledAppsPage.qml \
     qml/pages/BookmarksPage.qml \
@@ -117,6 +118,7 @@ OTHER_FILES += \
     qml/pages/RestoreDialog.qml \
     qml/pages/BackupDialog.qml \
     qml/pages/SettingsPage.qml \
+    qml/pages/MainPageOrderDialog.qml \
     qml/pages/LocalRpmsPage.qml \
     qml/pages/RepoSuggestionPage.qml \
     qml/components/AppListDelegate.qml \
@@ -128,7 +130,9 @@ OTHER_FILES += \
     qml/components/AppInfoLabel.qml \
     qml/components/ScreenshotsBox.qml \
     qml/components/MoreButton.qml \
-    qml/components/ApplicationPageMenu.qml \
+    qml/components/MainPageButton.qml \
+    qml/components/MainPageAppGridDelegate.qml \
+    qml/components/AppPageMenu.qml \
     qml/components/RefreshMenuItem.qml \
     qml/components/ParticipantsDelegate.qml \
     qml/components/CommentDelegate.qml \
@@ -138,10 +142,14 @@ OTHER_FILES += \
     qml/components/ListMenuItem.qml \
     qml/components/BookmarkButton.qml \
     qml/components/MenuStatusLabel.qml \
-    qml/components/StoremanHint.qml \
+    qml/components/MenuSearchItem.qml \
+    qml/components/StoremanTapHint.qml \
     qml/components/StoremanHintLabel.qml \
+    qml/components/StoremanTouchInteractionHint.qml \
     qml/components/TagDelegate.qml \
     qml/components/DisappearAnimation.qml \
+    qml/components/BackupLabel.qml \
+    qml/components/BackupOptions.qml \
     qml/models/DevelopersModel.qml \
     qml/models/TranslatorsModel.qml \
     qml/models/DummyCommentsModel.qml

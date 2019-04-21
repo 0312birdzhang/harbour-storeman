@@ -28,7 +28,7 @@ Page {
         }
 
         header: PageHeader {
-            //% "Installed Applications"
+            //% "Installed applications"
             title: qsTrId("orn-installed-apps")
             //% "Only from enabled repositories"
             description: qsTrId("orn-installed-apps-description")
@@ -74,6 +74,14 @@ Page {
                         OrnPm.removePackage(packageId)
                     })
                 }
+            }
+
+            ListView.onAdd: AddAnimation {
+                target: item
+            }
+
+            ListView.onRemove: RemoveAnimation {
+                target: item
             }
 
             Row {

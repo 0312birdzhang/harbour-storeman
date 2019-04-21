@@ -4,7 +4,8 @@ import harbour.orn 1.0
 
 Item {
     property alias statusLabel: statusLabel
-    property alias ratingBox: ratingBox
+    property alias likeButton: likeButton
+    property alias starButton: starButton
 
     anchors {
         left: parent.left
@@ -14,8 +15,22 @@ Item {
     }
     height: statusLabel.height + stats.height + categoryPanel.height + Theme.paddingLarge
 
+    IconButton {
+        id: likeButton
+        anchors {
+            right: starButton.left
+            verticalCenter: starButton.verticalCenter
+        }
+        icon.source: (app.userVote > 0 ? "image://theme/icon-m-like?" : "image://theme/icon-m-outline-like?") +
+                     (pressed ? Theme.highlightColor : Theme.primaryColor)
+        onClicked: pageStack.push(Qt.resolvedUrl("../pages/VotingPage.qml"), {
+                                      appId: app.appId,
+                                      userVote: app.userVote
+                                  }, PageStackAction.Immediate)
+    }
+
     BookmarkButton {
-        id: star
+        id: starButton
         anchors.right: parent.right
         appId: app.appId
     }
@@ -24,7 +39,7 @@ Item {
         id: statusLabel
         anchors {
             left: parent.left
-            right: star.left
+            right: likeButton.left
             rightMargin: Theme.paddingMedium
         }
         running: _packageStatus === OrnPm.PackageInstalling ||
@@ -73,35 +88,27 @@ Item {
             top: statusLabel.bottom
             topMargin: Theme.paddingMedium
             left: parent.left
-            right: star.left
+            right: likeButton.left
             rightMargin: Theme.paddingMedium
         }
-        spacing: Theme.paddingSmall
+        spacing: Theme.paddingMedium
 
         IconLabel {
             icon: "image://theme/icon-s-like"
+            anchors.verticalCenter: parent.verticalCenter
             text: app.ratingCount.toLocaleString(_locale, "f", 0)
         }
 
         RatingBox {
             id: ratingBox
-            width: implicitWidth + Theme.paddingLarge
+            anchors.verticalCenter: parent.verticalCenter
             ratingCount: app.ratingCount
             rating: app.rating
-
-            MouseArea {
-                width: parent.width
-                height: Theme.itemSizeMedium
-                anchors.verticalCenter: parent.verticalCenter
-                onClicked: pageStack.push(Qt.resolvedUrl("../pages/VotingPage.qml"), {
-                                              appId: app.appId,
-                                              userVote: app.userVote
-                                          }, PageStackAction.Immediate)
-            }
         }
 
         IconLabel {
             icon: "image://theme/icon-s-cloud-download"
+            anchors.verticalCenter: parent.verticalCenter
             text: app.downloadsCount.toLocaleString(_locale, "f", 0)
         }
     }

@@ -8,7 +8,6 @@
 
 #define SSU_SERVICE            QStringLiteral("org.nemo.ssu")
 #define SSU_PATH               QStringLiteral("/org/nemo/ssu")
-#define SSU_METHOD_DISPLAYNAME "displayName"
 #define SSU_METHOD_ADDREPO     "addRepo"
 #define SSU_METHOD_MODIFYREPO  "modifyRepo"
 
@@ -35,16 +34,21 @@
 #include "ornpm.h"
 #include "orninstalledpackage.h"
 
+#include <private/qobject_p.h>
 #include <QSet>
-
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusPendingCallWatcher>
 
 
-struct OrnPmPrivate
+class OrnPmPrivate : public QObjectPrivate
 {
-    OrnPmPrivate(OrnPm *ornPm);
+    Q_DISABLE_COPY(OrnPmPrivate)
+    Q_DECLARE_PUBLIC(OrnPm)
+
+public:
+    OrnPmPrivate() = default;
+    virtual ~OrnPmPrivate() = default;
 
     void initialise();
     QDBusInterface *transaction(const QString &item = QString());
@@ -54,10 +58,23 @@ struct OrnPmPrivate
     void onRepoModified(const QString &repoAlias, OrnPm::RepoAction action);
     OrnInstalledPackageList prepareInstalledPackages(const QString &packageName);
 
+    // Check for updates
+    void getUpdates();
+    void onPackageUpdate(quint32 info, const QString& packageId, const QString &summary);
+    void onGetUpdatesFinished(quint32 status, quint32 runtime);
+    // Install package
+    void onPackageInstalled(quint32 exit, quint32 runtime);
+    // Remove package
+    void onPackageRemoved(quint32 exit, quint32 runtime);
+    // Update package
+    void onPackageUpdated(quint32 exit, quint32 runtime);
+    // Refresh repos
+    void refreshNextRepo(quint32 exit, quint32 runtime);
+
     // <alias, enabled>
-    typedef QHash<QString, bool>    RepoHash;
-    typedef QSet<QString>           StringSet;
-    typedef QHash<QString, QString> StringHash;
+    using RepoHash   = QHash<QString, bool>;
+    using StringSet  = QSet<QString>;
+    using StringHash = QHash<QString, QString>;
 
     bool            initialised;
     StringSet       archs;
@@ -74,9 +91,6 @@ struct OrnPmPrivate
 #ifdef QT_DEBUG
     quint64         refreshRuntime;
 #endif
-
-private:
-    OrnPm *q_ptr;
 };
 
 #endif // ORNPM_P_H

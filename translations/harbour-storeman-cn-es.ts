@@ -13,7 +13,7 @@
     </message>
     <message id="orn-refresh">
         <source>Refresh</source>
-        <translation>Actualizar</translation>
+        <translation>Volver a cargar</translation>
     </message>
     <message id="orn-disable">
         <source>Disable</source>
@@ -411,10 +411,6 @@
         <source>Edit</source>
         <translation>Editar</translation>
     </message>
-    <message id="orn-thisdevice">
-        <source>This Device</source>
-        <translation>Este dispositivo</translation>
-    </message>
     <message id="orn-login-menu-item">
         <source>Log in to OpenRepos.net</source>
         <translation>Iniciar sesión en OpenRepos.net</translation>
@@ -512,7 +508,7 @@
         <translation>Deshabilitando todo</translation>
     </message>
     <message id="orn-installed-apps">
-        <source>Installed Applications</source>
+        <source>Installed applications</source>
         <translation>Aplicaciones instaladas</translation>
     </message>
     <message id="orn-bookmarks-added">
@@ -663,17 +659,13 @@
         <source>Login to comment</source>
         <translation>Iniciar sesión para comentar</translation>
     </message>
-    <message id="orn-backup-title">
-        <source>Backup to a file</source>
-        <translation>Copiar a archivo</translation>
-    </message>
     <message id="orn-backup">
         <source>Backup</source>
         <translation>Copia de seguridad</translation>
     </message>
     <message id="orn-backup-hint">
-        <source>Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.</source>
-        <translation>La copia de seguridad te permite guardar tus repositorios actuales de OpenRepos, las aplicaciones instaladas y las favoritas y restaurarlas después (por ejemplo, tras un reseteo de fábrica). Una copia de seguridad es un archivo local que se guarda en el directorio&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;¡Atención!&lt;/b&gt; Debes copiar tus copias de seguridad manualmente en algún lugar seguro antes de hacer un reseteo de fábrica. Podría ser tu tarjeta SD, dispositivo externo, almacenamiento en la nube o cualquier otro.</translation>
+        <source>&lt;h2&gt;Backup to a file&lt;/h2&gt;&lt;br /&gt;&lt;p&gt;Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;/p&gt;&lt;br /&gt;&lt;p&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.&lt;/p&gt;</source>
+        <translation>&lt;h2&gt;Copia de seguridad en archivo&lt;/h2&gt;&lt;br /&gt;&lt;p&gt;Las copias de seguridad permiten guardar tus repositorios actuales de OpenRepos, las aplicaciones instaladas y las favoritas y restaurarlas después (por ejemplo, tras un reseteo de fábrica). Una copia de seguridad es un archivo local que se guarda en el directorio&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; .&lt;/p&gt;&lt;br /&gt;&lt;p&gt;&lt;b&gt;¡Atención! &lt;/b&gt;Debes copiar tus copias de seguridad manualmente en algún lugar seguro antes de hacer un reseteo de fábrica. Podría ser tu tarjeta SD, dispositivo externo, almacenamiento en la nube o cualquier otro.&lt;/p&gt;</translation>
     </message>
     <message id="orn-pmstate-initialising">
         <source>Initialising</source>
@@ -884,7 +876,7 @@
     </message>
     <message id="orn-hint-commentdelegate">
         <source>Tap to navigate to the replied comment</source>
-        <translation>Da un toque para ir a la respuesta</translation>
+        <translation>Pulsa para ir a la respuesta</translation>
     </message>
     <message id="orn-tags">
         <source>Tags</source>
@@ -908,7 +900,7 @@
     </message>
     <message id="orn-hint-rating">
         <source>Tap to rate the application</source>
-        <translation>Da un toque para valorar aplicación</translation>
+        <translation>Pulsa para valorar aplicación</translation>
     </message>
     <message id="orn-local-rpms">
         <source>Local RPM files</source>
@@ -950,10 +942,6 @@
         <source>&lt;h3&gt;Enable the Storeman repository&lt;/h3&gt;&lt;p&gt;To receive the latest versions of Storeman, you need to enable its OpenRepos repository like for any other app.&lt;/p&gt;&lt;p&gt;Do you want to do it now?&lt;/p&gt;</source>
         <translation>&lt;h3&gt;Habilitar el repositorio de Storeman&lt;/h3&gt;&lt;p&gt;Para recibir las últimas versiones de Storeman, es necesario habilitar su repositorio en OpenRepos como cualquier otra aplicación. &lt;/p&gt;&lt;p&gt;¿Quieres hacerlo ahora?&lt;/p&gt;</translation>
     </message>
-    <message id="orn-save">
-        <source>Save</source>
-        <translation>Guardar</translation>
-    </message>
     <message id="orn-check-for-updates-switch">
         <source>Check for updates</source>
         <translation>Comprobar actualizaciones</translation>
@@ -974,9 +962,77 @@
         <source>Reload</source>
         <translation>Volver a cargar</translation>
     </message>
-    <message id="orn-message-error">
+    <message id="orn-no-packages">
+        <source>No packages available</source>
+        <translation>No hay paquetes disponibles</translation>
+    </message>
+    <message id="orn-error-comment-sending">
         <source>Error sending comment</source>
         <translation>Error al enviar comentario</translation>
+    </message>
+    <message id="orn-error-comment-deletion">
+        <source>Error deleting comment</source>
+        <translation>Error al borrar comentario</translation>
+    </message>
+    <message id="orn-error-network">
+        <source>Network error</source>
+        <translation>Error de conexión</translation>
+    </message>
+    <message id="orn-hint-bookmark">
+        <source>Tap to bookmark the application</source>
+        <translation>Pulsa para marcar la aplicación</translation>
+    </message>
+    <message id="orn-bad-appid">
+        <source>Invalid package ID %1</source>
+        <translation>paquete ID %1 no válido</translation>
+    </message>
+    <message id="orn-backup-filenameph">
+        <source>A file name for backup</source>
+        <translation>Un nombre para la copia de seguridad</translation>
+    </message>
+    <message id="orn-file-exists">
+        <source>File already exists</source>
+        <translation>El archivo ya existe</translation>
+    </message>
+    <message id="orn-backup-items">
+        <source>What to backup</source>
+        <translation>De qué hacer copia de seguridad</translation>
+    </message>
+    <message id="orn-backup-apps">
+        <source>Installed applications</source>
+        <translation>Aplicaciones instaladas</translation>
+    </message>
+    <message id="orn-myapps">
+        <source>My applications</source>
+        <translation>Mis aplicaciones</translation>
+    </message>
+    <message id="orn-hint-close">
+        <source>Tap again to close the hint</source>
+        <translation>Toca de nuevo para cerrar la ayuda</translation>
+    </message>
+    <message id="orn-mainpage">
+        <source>Main page</source>
+        <translation>Página principal</translation>
+    </message>
+    <message id="orn-show-recent-switch">
+        <source>Show recently updated on start</source>
+        <translation>Actualizado recientemente en el inicio</translation>
+    </message>
+    <message id="orn-show-recent-switch-descr">
+        <source>Switch to the page of recently updated packages on start</source>
+        <translation>Cambia a la página de paquetes actualizados recientemente al iniciar la aplicación</translation>
+    </message>
+    <message id="orn-mainpage-order">
+        <source>Order items</source>
+        <translation>Orden de los elementos</translation>
+    </message>
+    <message id="orn-reset">
+        <source>Reset</source>
+        <translation>Restaurar</translation>
+    </message>
+    <message id="orn-mainpage-order-description">
+        <source>Drag items to change their order</source>
+        <translation>Arrastra los elementos para cambiar el orden</translation>
     </message>
 </context>
 </TS>

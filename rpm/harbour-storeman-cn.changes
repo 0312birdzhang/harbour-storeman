@@ -1,3 +1,48 @@
+* Sun Mar 24 2019 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.1.4-1
+- Update translations
+
+* Fri Mar 22 2019 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.1.3-1
+- Update translations
+
+* Tue Feb 25 2019 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.1.2-1
+- Update translations
+
+* Sat Feb 16 2019 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.1.1-1
+- Add an ability to order items of the main page
+- Fix disappearing grid of recent updates
+- Remove old code
+- Refactoring
+- Update translations
+
+* Sun Feb 10 2019 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.1.0-1
+- Better handling of empty and deleted packages
+- Allow to select which items to backup (repos, installed apps, bookmarks)
+- Allow to set a backup filename
+- Fix displaying bookmarks
+- Better handling of network status
+- Fix showing network error after user session expiry
+- Add the ability to open the own applications page for publishers
+- Better tap hints
+- Revamp UI:
+- Add new main page
+- Remove "This device" page
+- Move most entries from this device page to the main page
+- Move the authorization and backups buttons to the settings page
+- Add an option to switch to recently updated packages on start
+- Application page: better handling of an empty changelog
+- Update translations
+- Different small fixes and optimizations
+
+* Sun Jan 20 2019 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.0.33-3
+- Fix layout for various devices, orientations and system font sizes (thanks to Matti Viljanen)
+- Hide pulley menu on the comments page when page header is hidden (thanks to Matti Viljanen)
+- ApplicationPage.qml: Add "like" buttun to make rating applications more clear
+- Fix showing apps with no packages
+- Handle invalid bookmarks
+- Add animations for list view items
+- Update translations
+- Update the list of contributors
+
 * Tue Nov 27 2018 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.0.32-1
 - SearchPage.qml: Force focus on the search field when is activated with the search action from the cover and when is cleared
 - CommentDelegate.qml: Fix strings formatting

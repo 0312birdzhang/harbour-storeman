@@ -9,7 +9,7 @@
     </message>
     <message id="orn-repositories">
         <source>Repositories</source>
-        <translation>Repositories</translation>
+        <translation>Repository</translation>
     </message>
     <message id="orn-refresh">
         <source>Refresh</source>
@@ -147,7 +147,7 @@
     </message>
     <message id="orn-cat-ambience-themes">
         <source>Ambience &amp; Themes</source>
-        <translation>Atmosfere &amp; Temi</translation>
+        <translation>Atmosfere &amp; temi</translation>
     </message>
     <message id="orn-cat-business">
         <source>Business</source>
@@ -155,11 +155,11 @@
     </message>
     <message id="orn-cat-city-guides-maps">
         <source>City guides &amp; maps</source>
-        <translation>Mappe &amp; Guide</translation>
+        <translation>Mappe &amp; guide</translation>
     </message>
     <message id="orn-cat-education-science">
         <source>Education &amp; Science</source>
-        <translation>Scienza &amp; Educazione</translation>
+        <translation>Scienza &amp; educazione</translation>
     </message>
     <message id="orn-cat-entertainment">
         <source>Entertainment</source>
@@ -179,15 +179,15 @@
     </message>
     <message id="orn-cat-patches">
         <source>Patches</source>
-        <translation>Patches</translation>
+        <translation>Patch</translation>
     </message>
     <message id="orn-cat-photo-video">
         <source>Photo &amp; video</source>
-        <translation>Foto &amp; Video</translation>
+        <translation>Foto &amp; video</translation>
     </message>
     <message id="orn-cat-social-networks">
         <source>Social Networks</source>
-        <translation>Social Networks</translation>
+        <translation>Social network</translation>
     </message>
     <message id="orn-cat-sports">
         <source>Sports</source>
@@ -203,7 +203,7 @@
     </message>
     <message id="orn-cat-utilities">
         <source>Utilities</source>
-        <translation>Utilities</translation>
+        <translation>Utility</translation>
     </message>
     <message id="orn-cat-games">
         <source>Games</source>
@@ -227,7 +227,7 @@
     </message>
     <message id="orn-cat-card-casino">
         <source>Card &amp; casino</source>
-        <translation>Carte &amp; Casino</translation>
+        <translation>Carte &amp; casinò</translation>
     </message>
     <message id="orn-cat-education">
         <source>Education</source>
@@ -411,10 +411,6 @@
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
-    <message id="orn-thisdevice">
-        <source>This Device</source>
-        <translation>Questo dispositivo</translation>
-    </message>
     <message id="orn-login-menu-item">
         <source>Log in to OpenRepos.net</source>
         <translation>Accedi a OpenRepos.net</translation>
@@ -512,7 +508,7 @@
         <translation>Disattivazione</translation>
     </message>
     <message id="orn-installed-apps">
-        <source>Installed Applications</source>
+        <source>Installed applications</source>
         <translation>Applicazioni installate</translation>
     </message>
     <message id="orn-bookmarks-added">
@@ -581,7 +577,7 @@
     </message>
     <message id="orn-backups">
         <source>Backups</source>
-        <translation>Backups</translation>
+        <translation>Backup</translation>
     </message>
     <message id="orn-backup-description">
         <source>Backup and restore repos and installed apps</source>
@@ -617,7 +613,7 @@
     </message>
     <message id="orn-total-repos">
         <source>Total repositories</source>
-        <translation>Total repositories</translation>
+        <translation>Totale repository</translation>
     </message>
     <message id="orn-details">
         <source>Details</source>
@@ -663,17 +659,13 @@
         <source>Login to comment</source>
         <translation>Accedi per commentare</translation>
     </message>
-    <message id="orn-backup-title">
-        <source>Backup to a file</source>
-        <translation>Backup su file</translation>
-    </message>
     <message id="orn-backup">
         <source>Backup</source>
         <translation>Backup</translation>
     </message>
     <message id="orn-backup-hint">
-        <source>Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.</source>
-        <translation>I backup permettono di salvare i repository attuali di OpenRepos, le applicazioni installate e preferite e di ripristinarli successivamente (ad esempio dopo un reset delle impostazioni). Un backup è un file salvato in locale nella cartella &lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Attenzione!&lt;/b&gt; Dovresti copiare manualmente i tuoi backup in un posto sicuro prima di fare un reset delle impostazioni. Ad esempio la tua memoria SD, un dispositivo esterno, uno spazio cloud, eccetera.</translation>
+        <source>&lt;h2&gt;Backup to a file&lt;/h2&gt;&lt;br /&gt;&lt;p&gt;Backup allows you to save your current OpenRepos repositories, installed applications and bookmarks and restore them later (for example after factory reset). A backup is a local file that is saved to the&lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; directory.&lt;/p&gt;&lt;br /&gt;&lt;p&gt;&lt;b&gt;Attention!&lt;/b&gt; You should copy your backups manually to some safe place before performing a factory reset. It could be your SD card, external device, cloud storage or something else.&lt;/p&gt;</source>
+        <translation>&lt;h2&gt;File di backup&lt;/h2&gt;&lt;br /&gt;&lt;p&gt;Il backup ti permette di salvare i tuoi repository, applicazioni installate e preferiti di OpenRepos e ripristinarli in seguito (ad esempio dopo un ripristino alle impostazioni di fabbrica del dispositivo). Un backup è un file salvato nella cartella &lt;br /&gt;&lt;i&gt;~/Documents/Storeman&lt;/i&gt; &lt;/p&gt;&lt;br /&gt;&lt;p&gt;&lt;b&gt;Attenzione!&lt;/b&gt;Prima di ripristinare il tuo dispositivo alle impostazioni di fabbrica, assicurati di spostare i tuoi backup in un posto sicuro, come la tua scheda SD, dispositivo esterno, cloud o altro.&lt;/p&gt;</translation>
     </message>
     <message id="orn-pmstate-initialising">
         <source>Initialising</source>
@@ -950,10 +942,6 @@
         <source>&lt;h3&gt;Enable the Storeman repository&lt;/h3&gt;&lt;p&gt;To receive the latest versions of Storeman, you need to enable its OpenRepos repository like for any other app.&lt;/p&gt;&lt;p&gt;Do you want to do it now?&lt;/p&gt;</source>
         <translation>&lt;h3&gt;Attiva il repo di Storeman&lt;/h3&gt;&lt;p&gt;Per ricevere le ultime versioni di Storeman, devi abilitare il suo repo.&lt;/p&gt;&lt;p&gt;Vuoi abilitarlo ora?&lt;/p&gt;</translation>
     </message>
-    <message id="orn-save">
-        <source>Save</source>
-        <translation>Salva</translation>
-    </message>
     <message id="orn-check-for-updates-switch">
         <source>Check for updates</source>
         <translation>Controlla aggiornamenti</translation>
@@ -989,6 +977,62 @@
     <message id="orn-error-network">
         <source>Network error</source>
         <translation>Errore di rete</translation>
+    </message>
+    <message id="orn-hint-bookmark">
+        <source>Tap to bookmark the application</source>
+        <translation>Tap per aggiungere l&apos;app ai preferiti</translation>
+    </message>
+    <message id="orn-bad-appid">
+        <source>Invalid package ID %1</source>
+        <translation>ID pacchetto non valido %1</translation>
+    </message>
+    <message id="orn-backup-filenameph">
+        <source>A file name for backup</source>
+        <translation>Nome file per il backup</translation>
+    </message>
+    <message id="orn-file-exists">
+        <source>File already exists</source>
+        <translation>Il file esiste già</translation>
+    </message>
+    <message id="orn-backup-items">
+        <source>What to backup</source>
+        <translation>Cosa salvare</translation>
+    </message>
+    <message id="orn-backup-apps">
+        <source>Installed applications</source>
+        <translation>Applicazioni installate</translation>
+    </message>
+    <message id="orn-myapps">
+        <source>My applications</source>
+        <translation>Mie applicazioni</translation>
+    </message>
+    <message id="orn-hint-close">
+        <source>Tap again to close the hint</source>
+        <translation>Tap di nuovo per chiudere il suggerimento</translation>
+    </message>
+    <message id="orn-mainpage">
+        <source>Main page</source>
+        <translation>Pagina principale</translation>
+    </message>
+    <message id="orn-show-recent-switch">
+        <source>Show recently updated on start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="orn-show-recent-switch-descr">
+        <source>Switch to the page of recently updated packages on start</source>
+        <translation>All&apos;avvio passa alla pagina dei pacchetti aggiornati recentemente</translation>
+    </message>
+    <message id="orn-mainpage-order">
+        <source>Order items</source>
+        <translation>Ordina elementi</translation>
+    </message>
+    <message id="orn-reset">
+        <source>Reset</source>
+        <translation>Resetta</translation>
+    </message>
+    <message id="orn-mainpage-order-description">
+        <source>Drag items to change their order</source>
+        <translation>Trascina gli elementi per cambiarne l&apos;ordine</translation>
     </message>
 </context>
 </TS>

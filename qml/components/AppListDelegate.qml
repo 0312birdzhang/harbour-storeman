@@ -8,9 +8,13 @@ ListItem {
     property int previousAppId: -1
     property int previousStep: 1
 
-    contentHeight: Theme.itemSizeExtraLarge
+    id: appListDelegate
+    contentHeight: Math.max(appIcon.height, appInfo.height) + Theme.paddingLarge * 1.5
 
     onClicked: {
+        if (!model.isValid) {
+            return
+        }
         var appId = model.appId
         if (previousAppId === appId) {
             // Trying to open a page for the previous application, so just go back
@@ -20,111 +24,135 @@ ListItem {
             }
             pageStack.pop(p)
         } else {
-            pageStack.push(Qt.resolvedUrl("../pages/ApplicationPage.qml"), {
+            pageStack.push(Qt.resolvedUrl("../pages/AppPage.qml"), {
                                appId: appId,
                                returnToUser: returnToUser
                            })
         }
     }
 
-    Row {
-        id: row
-        anchors.verticalCenter: parent.verticalCenter
-        x: Theme.horizontalPageMargin
-        width: parent.width - Theme.horizontalPageMargin * 2
-        spacing: Theme.paddingMedium
-
-        Image {
-            id: appIcon
-            anchors.verticalCenter: parent.verticalCenter
-            width: Theme.iconSizeLauncher
-            height: Theme.iconSizeLauncher
-            fillMode: Image.PreserveAspectFit
-            source: model.iconSource ? model.iconSource : "image://theme/icon-launcher-default"
-        }
-
-        Column {
-            id: column
-            anchors.verticalCenter: parent.verticalCenter
-            width: row.width - appIcon.width - Theme.paddingMedium
-            spacing: Theme.paddingSmall
-
-            Label {
-                id: titleLabel
-                width: parent.width - star.width
-                maximumLineCount: 2
-                verticalAlignment: Qt.AlignVCenter
-                font.pixelSize: Theme.fontSizeExtraSmall
-                wrapMode: Text.WordWrap
-                text: model.title
-            }
-
-            Label {
-                id: categoryLabel
-                width: parent.width
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: Theme.secondaryColor
-                text: model.category
-            }
-
-            Row {
-                spacing: Theme.paddingSmall
-
-                RatingBox {
-                    id: ratingBox
-                    ratingCount: model.ratingCount
-                    rating: model.rating
-                }
-
-                Label {
-                    id: userNameLabel
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: column.width - ratingBox.width - statusLoader.width - parent.spacing * 2
-                    horizontalAlignment: Qt.AlignRight
-                    truncationMode: TruncationMode.Fade
-                    font.pixelSize: Theme.fontSizeTiny
-                    color: Theme.highlightColor
-                    text: model.userName + "\u2009\u2022\u2009" +
-                          model.createDate.toLocaleDateString(_locale, Locale.ShortFormat)
-                }
-
-                Loader {
-                    readonly property var _packageStatus: packageStatus
-
-                    id: statusLoader
-                    anchors.verticalCenter: parent.verticalCenter
-                    sourceComponent: _packageStatus < OrnPm.PackageInstalling ?
-                                         iconComponent : busyComponent
-
-                    Component {
-                        id: busyComponent
-                        BusyIndicator {
-                            size: BusyIndicatorSize.ExtraSmall
-                            running: true
-                        }
-                    }
-
-                    Component {
-                        id: iconComponent
-                        Image {
-                            source: _packageStatus === OrnPm.PackageInstalled ?
-                                        "image://theme/icon-s-installed" :
-                                        _packageStatus === OrnPm.PackageUpdateAvailable ?
-                                            "image://theme/icon-s-update" : ""
-                        }
-                    }
-                }
-            }
-        }
+    ListView.onRemove: RemoveAnimation {
+        target: appListDelegate
     }
 
-    BookmarkButton {
-        id: star
+    // Application icon on the left
+    Image {
+        id: appIcon
         anchors {
-            right: parent.right
-            rightMargin: Theme.paddingSmall
-            topMargin: Theme.paddingSmall
+            left: parent.left
+            leftMargin: _appListDelegatePadding
+            verticalCenter: parent.verticalCenter
         }
-        appId: model.appId
+        width: Theme.iconSizeLauncher
+        height: Theme.iconSizeLauncher
+        fillMode: Image.PreserveAspectFit
+        source: model.iconSource
+    }
+
+    // Title, category, rating and bookmark button
+    Item {
+        id: appInfo
+        anchors {
+            left: appIcon.right
+            leftMargin: Theme.paddingMedium
+            right: parent.right
+            rightMargin: _appListDelegatePadding
+            verticalCenter: parent.verticalCenter
+        }
+        height: ratingBox.y + ratingBox.height
+
+        // Application title
+        Label {
+            id: titleLabel
+            width: parent.width - bookmarkStar.width - Theme.paddingSmall
+            //% "Invalid package ID %1"
+            text: model.title || qsTrId("orn-bad-appid").arg(model.appId)
+            font.pixelSize: Theme.fontSizeExtraSmall
+            wrapMode: Text.WordWrap
+            maximumLineCount: 2
+            truncationMode: TruncationMode.Elide
+        }
+
+        // Category
+        Label {
+            id: categoryLabel
+            anchors.top: titleLabel.bottom
+            width: titleLabel.width
+            text: model.category
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Theme.secondaryColor
+        }
+
+        // Current rating
+        RatingBox {
+            id: ratingBox
+            y: Math.max(categoryLabel.y + categoryLabel.height,
+                        bookmarkStar.y + bookmarkStar.height) +
+               Theme.paddingSmall
+            ratingCount: model.ratingCount
+            rating: model.rating
+        }
+
+        // Author and date next to star rating
+        Label {
+            id: userNameLabel
+            anchors {
+                left: ratingBox.right
+                leftMargin: Theme.paddingSmall
+                right: statusLoader.left
+                rightMargin: Theme.paddingSmall
+                verticalCenter: ratingBox.verticalCenter
+            }
+            font.pixelSize: Theme.fontSizeTiny
+            horizontalAlignment: Qt.AlignRight
+            truncationMode: TruncationMode.Fade
+            color: Theme.highlightColor
+            text: {
+                var res = model.userName
+                var createDate = model.createDate
+                if (!isNaN(createDate)) {
+                    res += "\u2009\u2022\u2009"
+                    res += createDate.toLocaleDateString(_locale, Locale.ShortFormat)
+                }
+                return res
+            }
+        }
+
+        // Installed / installing spinner
+        Loader {
+            id: statusLoader
+            anchors {
+                verticalCenter: ratingBox.verticalCenter
+                right: parent.right
+            }
+            sourceComponent: packageStatus < OrnPm.PackageInstalling ?
+                                 iconComponent : busyComponent
+
+            Component {
+                id: busyComponent
+                BusyIndicator {
+                    size: BusyIndicatorSize.ExtraSmall
+                    running: true
+                }
+            }
+
+            Component {
+                id: iconComponent
+                Image {
+                    source: packageStatus === OrnPm.PackageInstalled ?
+                                "image://theme/icon-s-installed" :
+                                packageStatus === OrnPm.PackageUpdateAvailable ?
+                                    "image://theme/icon-s-update" : ""
+                }
+            }
+        }
+
+        // Bookmark star on the right
+        BookmarkButton {
+            id: bookmarkStar
+            anchors.right: parent.right
+            appId: model.appId
+            bookmarked: model.isBookmarked
+        }
     }
 }

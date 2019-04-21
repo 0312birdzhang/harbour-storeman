@@ -13,6 +13,8 @@ public:
     enum Role
     {
         SortRole = Qt::UserRole,
+        ValidityRole,
+        BookmarkRole,
         PackageStatusRole,
         AppIdRole,
         CreateDateRole,
@@ -22,14 +24,11 @@ public:
         UserNameRole,
         IconSourceRole,
         SinceUpdateRole,
-        CategoryRole
+        CategoryRole,
     };
     Q_ENUM(Role)
 
     OrnAbstractAppsModel(bool fetchable, QObject *parent = nullptr);
-
-private slots:
-    void onPackageStatusChanged(const QString &packageName, int status);
 
     // QAbstractItemModel interface
 public:

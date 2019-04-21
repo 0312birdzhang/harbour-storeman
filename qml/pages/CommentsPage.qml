@@ -25,19 +25,16 @@ Page {
                 commentsList.model = dcmComp.createObject()
 
                 var label = commentsList.currentItem.replyToLabel
-                var shComp = Qt.createComponent(Qt.resolvedUrl("../components/StoremanHint.qml"))
-                var shObj = shComp.createObject(label, {
-                                                    distance: 0.0,
-                                                    "anchors.centerIn": label
-                                                })
+                var shComp = Qt.createComponent(Qt.resolvedUrl("../components/StoremanTapHint.qml"))
+                var shObj = shComp.createObject(label)
 
                 var shlComp = Qt.createComponent(Qt.resolvedUrl("../components/StoremanHintLabel.qml"))
                 var shlObj = shlComp.createObject(page, {
-                                                      hint: shObj,
-                                                      //% "Tap to navigate to the replied comment"
-                                                      text: qsTrId("orn-hint-commentdelegate"),
-                                                      invert: true
-                                                  })
+                    hint: shObj,
+                    //% "Tap to navigate to the replied comment"
+                    text: qsTrId("orn-hint-commentdelegate"),
+                    invert: true
+                })
 
                 shlObj.finished.connect(function() {
                     _hintMode = false
@@ -71,6 +68,7 @@ Page {
 
         PullDownMenu {
             id: menu
+            visible: pageHeader.height > 0.0
 
             RefreshMenuItem {
                 model: commentsModel
@@ -83,13 +81,18 @@ Page {
             id: pageHeader
             // Hide header when typing comment
             height: page.isLandscape && commentField.item.isActive ?
-                        0.0 : _preferredHeight + Theme.paddingMedium
-            visible: height > 0.0
+                        0.0 :
+                        Math.max(_preferredHeight,
+                                 _titleItem.y + _titleItem.height +
+                                 (_descriptionLabel ? _descriptionLabel.height : 0.0) +
+                                 Theme.paddingMedium)
+            opacity: height > 0.0 ? 1.0 : 0.0
+            visible: opacity
             //% "Comments"
             title: qsTrId("orn-comments")
             description: userName
 
-            Behavior on height { NumberAnimation { } }
+            Behavior on opacity { NumberAnimation { } }
         }
 
         BusyIndicator {

@@ -9,7 +9,8 @@
 
 
 OrnAppListItem::OrnAppListItem(const QJsonObject &jsonObject)
-    : appId(jsonObject[QStringLiteral("appid")].toVariant().toUInt())
+    : valid(jsonObject.size() > 1)
+    , appId(jsonObject[QStringLiteral("appid")].toVariant().toUInt())
     , created(OrnUtils::toUint(jsonObject[QStringLiteral("created")]))
     , updated(OrnUtils::toUint(jsonObject[QStringLiteral("updated")]))
     , title(OrnUtils::toString(jsonObject[QStringLiteral("title")]))
@@ -30,6 +31,12 @@ OrnAppListItem::OrnAppListItem(const QJsonObject &jsonObject)
     category = OrnCategoryListItem::categoryName(tid);
 
     package = OrnUtils::toString(jsonObject[QStringLiteral("package")].toObject()[nameKey]);
+
+    if (iconSource.isEmpty() ||
+        iconSource.endsWith(QStringLiteral("icon-defaultpackage.png")))
+    {
+        iconSource = QStringLiteral("image://theme/icon-launcher-default");
+    }
 }
 
 QString OrnAppListItem::sinceLabel(quint32 value)

@@ -6,9 +6,9 @@ import "../components"
 Page {
     property bool returnToUser: false
     property int appId: 0
-    property OrnApplication app: Storeman.cachedApp(appId)
+    readonly property OrnApplication app: Storeman.cachedApp(appId)
     readonly property int _packageStatus: app.packageStatus
-    property int _commentsCount: app && app.commentsCount
+    property int _commentsCount: app.commentsCount
 
     id: page
     allowedOrientations: defaultAllowedOrientations
@@ -16,8 +16,12 @@ Page {
     onStatusChanged: {
         // Wait until page loads to prevent lagging
         // And don't call ornRequest() if the app was already loaded
-        if (!app.packageName && status === PageStatus.Active) {
-            app.ornRequest()
+        if (status === PageStatus.Active) {
+            if (_packageStatus === OrnPm.PackageUnknownStatus) {
+                app.ornRequest()
+            } else {
+                flickable.visible = true
+            }
         }
     }
 
@@ -31,26 +35,34 @@ Page {
     Connections {
         target: app
         onOrnRequestFinished: {
+            flickable.visible = true
+
             // Show rating hint
-            if (Storeman.showHint(Storeman.ApplicationRatingHint)) {
-                var shComp = Qt.createComponent(Qt.resolvedUrl("../components/StoremanHint.qml"))
-                var shObj = shComp.createObject(packageInfo.ratingBox, {
-                    distance: 0.0,
-                    "anchors.centerIn": packageInfo.ratingBox
-                })
+            if (Storeman.showHint(Storeman.ApplicationRateAndBookmarkHint)) {
+                var shComp = Qt.createComponent(Qt.resolvedUrl("../components/StoremanTapHint.qml"))
+                var shObj = shComp.createObject(packageInfo.likeButton)
 
                 var shlComp = Qt.createComponent(Qt.resolvedUrl("../components/StoremanHintLabel.qml"))
                 var shlObj = shlComp.createObject(page, {
                     hint: shObj,
                     //% "Tap to rate the application"
-                    text: qsTrId("orn-hint-rating"),
-                    "anchors.bottom": page.bottom
+                    text: qsTrId("orn-hint-rating")
                 })
 
+                var secondHint = false
+
                 shlObj.finished.connect(function() {
-                    Storeman.setHintShowed(Storeman.ApplicationRatingHint)
-                    shlObj.destroy()
-                    shObj.destroy()
+                    if (secondHint) {
+                        Storeman.setHintShowed(Storeman.ApplicationRateAndBookmarkHint)
+                        shlObj.destroy()
+                        shObj.destroy()
+                    } else {
+                        secondHint = true
+                        //% "Tap to bookmark the application"
+                        shlObj.text = qsTrId("orn-hint-bookmark")
+                        shObj.parent = packageInfo.starButton
+                        shObj.start()
+                    }
                 })
 
                 shObj.start()
@@ -67,10 +79,10 @@ Page {
     SilicaFlickable {
         id: flickable
         anchors.fill: parent
-        visible: app.packageName && !app.running
+        visible: false
         contentHeight: content.height
 
-        ApplicationPageMenu {
+        AppPageMenu {
             id: pageMenu
         }
 

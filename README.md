@@ -2,17 +2,7 @@
 
 Unofficial native OpenRepos.net client for Sailfish OS
 
-[![Release](https://img.shields.io/github/release/mentaljam/harbour-storeman.svg)]()
-
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-01.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-01.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-02.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-02.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-03.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-03.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-04.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-04.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-05.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-05.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-06.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-06.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-07.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-07.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-08.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-08.png)
-[![](https://openrepos.net/sites/default/files/styles/medium/public/packages/12692/screenshot-screenshot-storeman-09.png)](https://openrepos.net/sites/default/files/packages/12692/screenshot-screenshot-storeman-09.png)
+[![Release](https://img.shields.io/github/release/mentaljam/harbour-storeman.svg)](https://github.com/mentaljam/harbour-storeman/releases/latest)
 
 ## Current features
 
@@ -42,8 +32,11 @@ Unofficial native OpenRepos.net client for Sailfish OS
 
 Current RPMs to install are available at [OpenRepos.net](https://openrepos.net/content/osetr/storeman).
 
-## Development
+## Contributors
 
+- [Petr Tsymbarovich](https://github.com/mentaljam)
+- [Christoph](https://github.com/inta)
+- [Matti Viljanen](https://github.com/direc85)
 - OpenRepos service by [Basil Semuonov](https://github.com/custodian)
 - Application icon by [Laurent_C](https://openrepos.net/users/laurentc)
 

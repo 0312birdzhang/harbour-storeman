@@ -4,7 +4,7 @@ import harbour.orn 1.0
 import "../components"
 
 Page {
-    property bool _working: false
+    property bool _working: true
     property var _knownAuthors: ({})
 
     function getAuthorId(name) {
@@ -131,6 +131,14 @@ Page {
                         OrnPm.modifyRepo(repoAlias, OrnPm.RemoveRepo)
                     })
                 }
+            }
+
+            ListView.onAdd: AddAnimation {
+                target: repoItem
+            }
+
+            ListView.onRemove: RemoveAnimation {
+                target: repoItem
             }
 
             Label {

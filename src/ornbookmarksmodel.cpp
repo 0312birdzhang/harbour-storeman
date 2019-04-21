@@ -9,9 +9,15 @@ OrnBookmarksModel::OrnBookmarksModel(QObject *parent)
     : OrnAbstractAppsModel(false, parent)
 {
     auto client = OrnClient::instance();
-    connect(OrnClient::instance(), &OrnClient::bookmarkChanged,
+    connect(client, &OrnClient::bookmarkChanged, this,
             [this, client](quint32 appId, bool bookmarked)
     {
+        if (this->canFetchMore(QModelIndex()))
+        {
+            // Model was not initialized yet so just ignore the signal
+            return;
+        }
+
         if (bookmarked)
         {
             auto request = client->apiRequest(QStringLiteral("apps/%1/compact").arg(appId));
@@ -30,8 +36,7 @@ OrnBookmarksModel::OrnBookmarksModel(QObject *parent)
         }
         else
         {
-            auto s = mData.size();
-            for (size_t i = 0; i < s; ++i)
+            for (size_t i = 0, s = mData.size(); i < s; ++i)
             {
                 if (mData[i].appId == appId)
                 {
@@ -54,12 +59,18 @@ void OrnBookmarksModel::fetchMore(const QModelIndex &parent)
         return;
     }
 
-    mFetching = true;
-    emit this->fetchingChanged();
-
     auto client = OrnClient::instance();
     auto bookmarks = client->bookmarks();
     auto size = bookmarks.size();
+
+    if (size == 0)
+    {
+        return;
+    }
+
+    mFetching = true;
+    emit this->fetchingChanged();
+
     QString resourceTmpl(QStringLiteral("apps/%1/compact"));
 
     for (const auto &appid : bookmarks)
@@ -67,19 +78,26 @@ void OrnBookmarksModel::fetchMore(const QModelIndex &parent)
         auto request = client->apiRequest(resourceTmpl.arg(appid));
         qDebug() << "Fetching data from" << request.url().toString();
         auto reply = client->networkAccessManager()->get(request);
-        connect(reply, &QNetworkReply::finished, [this, client, size, reply]()
+        connect(reply, &QNetworkReply::finished, this,
+                [this, client, size, reply, appid]()
         {
             auto doc = client->processReply(reply);
             if (doc.isObject())
             {
                 mFetchedApps.append(doc.object());
-                if (mFetchedApps.size() == size)
-                {
-                    this->processReply(QJsonDocument(mFetchedApps));
-                    mFetchedApps = QJsonArray();
-                    mFetching = false;
-                    emit this->fetchingChanged();
-                }
+            }
+            else
+            {
+                QJsonObject badApp;
+                badApp.insert(QStringLiteral("appid"), QString::number(appid));
+                mFetchedApps.append(badApp);
+            }
+            if (mFetchedApps.size() == size)
+            {
+                this->processReply(QJsonDocument(mFetchedApps));
+                mFetchedApps = QJsonArray();
+                mFetching = false;
+                emit this->fetchingChanged();
             }
         });
     }
